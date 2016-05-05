@@ -1,0 +1,23 @@
+.master{ width:100%}
+.send_info {
+    background: green none repeat scroll 0 0;
+    border-radius: 15px;
+    float: left;
+    height: 58px;
+    line-height: 24px;
+    margin: 2%;
+    padding: 6% 0 3%;
+    text-align: center;
+    width: 29%;
+}
+.master .send_info:hover{ background:#87f284;}
+.master .send_info:hover a{ color:#000; text-decoration:underline}
+.master div.last-child{ margin-right:0;}
+.send_info a{ color:#FFF; font-size:24px; font-weight:bold}
+.send_info a:hover{ }
+.questions{}
+.sent_info{}
+.logout{background: none repeat scroll 0 0 #dfdbd2;border-radius: 4px 0;color: #005900;font-size: 17px;padding: 2px 8px; 
+border:1px solid #00BB00;}
+
+.logout:hover{ color:#FB0000; text-decoration:underline}
