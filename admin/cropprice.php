@@ -129,14 +129,14 @@ if($_GET['type']=="del")
                               <td>
                               		<? $pieces = explode(",", $cropType);?>
                               		<input type="checkbox" name="cropType[]" value="पाक्षिक खुद्रा मूल्य"
-                                    <? for($i=0;$i<=strlen($pieces);$i++){ if($pieces[$i]=="पाक्षिक खुद्रा मूल्य"){ echo 'checked="checked"';}} ?> /> पाक्षिक खुद्रा मूल्य 
+                                    <? for($i=0;$i<=count($pieces);$i++){ if($pieces[$i]=="पाक्षिक खुद्रा मूल्य"){ echo 'checked="checked"';}} ?> /> पाक्षिक खुद्रा मूल्य 
                                     &nbsp;&nbsp;&nbsp;
                                     <input type="checkbox" name="cropType[]" value="पाक्षिक सिमावर्तिय खुद्रा मूल्य"
-                                    <? for($i=0;$i<=strlen($pieces);$i++){ if($pieces[$i]=="पाक्षिक सिमावर्तिय खुद्रा मूल्य"){ echo 'checked="checked"';}} ?> /> 
+                                    <? for($i=0;$i<=count($pieces);$i++){ if($pieces[$i]=="पाक्षिक सिमावर्तिय खुद्रा मूल्य"){ echo 'checked="checked"';}} ?> /> 
                                     पाक्षिक सिमावर्तिय खुद्रा मूल्य &nbsp;&nbsp;&nbsp;
                                     
                                     <input type="checkbox" name="cropType[]" value="पाक्षिक थोक मूल्य"
-                                    <? for($i=0;$i<=strlen($pieces);$i++){ if($pieces[$i]=="पाक्षिक थोक मूल्य"){ echo 'checked="checked"';}} ?> /> पाक्षिक थोक मूल्य
+                                    <? for($i=0;$i<=count($pieces);$i++){ if($pieces[$i]=="पाक्षिक थोक मूल्य"){ echo 'checked="checked"';}} ?> /> पाक्षिक थोक मूल्य
                               </td>
                             </tr>
                             <tr><td></td></tr>
