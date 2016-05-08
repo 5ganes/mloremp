@@ -42,15 +42,14 @@ else if($typeId==CROP){
 	//Store it into the array
 	while ($row = mysql_fetch_array($record))
 	{
-		$fYear[] =$row["fiscalYear"];$cName[]=$row['cropName'];$iArea[]=$row['irrigatedAreaHector'];$uArea[]=$row['unirrigatedArea'];
-		$iProduction[]=$row['irrigatedProductionTon'];$uProduction[]=$row['unirrigatedProductionTon'];$fPrice[]=$row['farmerPriceTon'];
+		$fYear[] =$row["fiscalYear"];$cName[]=$row['cropName'];$tArea[]=$row['totalAreaHector'];
+		$tProduction[]=$row['totalProductionTon'];$fPrice[]=$row['farmerPriceTon'];
 		$mPrice[]=$row['marketPriceTon'];
 	};
-	fputcsv($output, array('Fiscal Year','Crop Name','Irrigated Area(H)','Unirrigated Area(H)','Irrigated Production(T)','Unirrigated Production(T)',
-	'Farmer Price(Per Ton)','Market Price(Per Ton)'));
+	fputcsv($output, array('Fiscal Year','Crop Name','Total Area(H)','Total Production(T)','Farmer Price(Per Ton)','Market Price(Per Ton)'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$cName[$c],$iArea[$c],$uArea[$c],$iProduction[$c],$uProduction[$c],$fPrice[$c],$mPrice[$c]));	
+		fputcsv($output, array($fYear[$c],$cName[$c],$tArea[$c],$tProduction[$c],$fPrice[$c],$mPrice[$c]));	
 	}	
 }
 else if($typeId==POCKETAREA){

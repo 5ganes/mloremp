@@ -202,8 +202,8 @@ class Program
         return $conn->insertId();
     }
     
-    function saveCrop($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
-    $irrigatedProduction,$unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight)
+    function saveCrop($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$totalArea,
+        $productionUnit,$totalProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight)
     {
         global $conn;
         
@@ -214,22 +214,22 @@ class Program
         $cropName = cleanQuery($cropName);
         $cropCode = cleanQuery($cropCode);
         $areaUnit = cleanQuery($areaUnit);
-        $irrigatedArea = cleanQuery($irrigatedArea);
-        $unirrigatedArea = cleanQuery($unirrigatedArea);
+        //$irrigatedArea = cleanQuery($irrigatedArea);
+        $totalArea = cleanQuery($totalArea);
         //converting areas into hectare
-        if($areaUnit==KATHTHA){ $irrigatedAreaHector=$irrigatedArea/30; $unirrigatedAreaHector=$unirrigatedArea/30; }
-        else if($areaUnit==ROPANI){ $irrigatedAreaHector=$irrigatedArea/19.66; $unirrigatedAreaHector=$unirrigatedArea/19.66; }
-        else if($areaUnit==BIGHAA){ $irrigatedAreaHector=$irrigatedArea/1.48; $unirrigatedAreaHector=$unirrigatedArea/1.48; }
-        else if($areaUnit==BARGAMITAR){ $irrigatedAreaHector=$irrigatedArea/10000; $unirrigatedAreaHector=$unirrigatedArea/10000; }
-        else{ $irrigatedAreaHector=$irrigatedArea; $unirrigatedAreaHector=$unirrigatedArea; }
+        if($areaUnit==KATHTHA){ $totalAreaHector=$totalArea/30; }
+        else if($areaUnit==ROPANI){ $totalAreaHector=$totalArea/19.66; }
+        else if($areaUnit==BIGHAA){ $totalAreaHector=$totalArea/1.48; }
+        else if($areaUnit==BARGAMITAR){ $totalAreaHector=$totalArea/10000; }
+        else{ $totalAreaHector=$totalArea; }
         
         $productionUnit = cleanQuery($productionUnit);
-        $irrigatedProduction = cleanQuery($irrigatedProduction);
-        $unirrigatedProduction = cleanQuery($unirrigatedProduction);
+        //$irrigatedProduction = cleanQuery($irrigatedProduction);
+        $totalProduction = cleanQuery($totalProduction);
         //converting production into ton
-        if($productionUnit==KUNTAL){ $irrigatedProductionTon=$irrigatedProduction/10; $unirrigatedProductionTon=$unirrigatedProduction/10; }
-        else if($productionUnit==KG){ $irrigatedProductionTon=$irrigatedProduction/1000;$unirrigatedProductionTon=$unirrigatedProduction/1000; }
-        else{ $irrigatedProductionTon=$irrigatedProduction;$unirrigatedProductionTon=$unirrigatedProduction; }
+        if($productionUnit==KUNTAL){ $totalProductionTon=$totalProduction/10; }
+        else if($productionUnit==KG){ $totalProductionTon=$totalProduction/1000; }
+        else{ $totalProductionTon=$totalProduction; }
         
         $farmerUnit = cleanQuery($farmerUnit);
         $farmerPrice = cleanQuery($farmerPrice);
@@ -255,15 +255,11 @@ class Program
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             areaUnit = '$areaUnit',
-                            irrigatedArea = '$irrigatedArea',
-                            irrigatedAreaHector = '$irrigatedAreaHector',
-                            unirrigatedArea = '$unirrigatedArea',
-                            unirrigatedAreaHector = '$unirrigatedAreaHector',
+                            totalArea = '$totalArea',
+                            totalAreaHector = '$totalAreaHector',
                             productionUnit = '$productionUnit',
-                            irrigatedProduction = '$irrigatedProduction',
-                            irrigatedProductionTon = '$irrigatedProductionTon',
-                            unirrigatedProduction = '$unirrigatedProduction',
-                            unirrigatedProductionTon = '$unirrigatedProductionTon',
+                            totalProduction = '$totalProduction',
+                            totalProductionTon = '$totalProductionTon',
                             farmerUnit = '$farmerUnit',
                             farmerPrice = '$farmerPrice',
                             farmerPriceTon = '$farmerPriceTon',
@@ -283,15 +279,11 @@ class Program
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             areaUnit = '$areaUnit',
-                            irrigatedArea = '$irrigatedArea',
-                            irrigatedAreaHector = '$irrigatedAreaHector',
-                            unirrigatedArea = '$unirrigatedArea',
-                            unirrigatedAreaHector = '$unirrigatedAreaHector',
+                            totalArea = '$totalArea',
+                            totalAreaHector = '$totalAreaHector',
                             productionUnit = '$productionUnit',
-                            irrigatedProduction = '$irrigatedProduction',
-                            irrigatedProductionTon = '$irrigatedProductionTon',
-                            unirrigatedProduction = '$unirrigatedProduction',
-                            unirrigatedProductionTon = '$unirrigatedProductionTon',
+                            totalProduction = '$totalProduction',
+                            totalProductionTon = '$totalProductionTon',
                             farmerUnit = '$farmerUnit',
                             farmerPrice = '$farmerPrice',
                             farmerPriceTon = '$farmerPriceTon',

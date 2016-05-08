@@ -21,8 +21,7 @@ if (isset($_POST['save']))
 		}
 		elseif($_POST['tableName']=="tbl_crop")
 		{
-			$program->saveCrop($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
-			$irrigatedProduction,$unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight);
+			$program->saveCrop($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$totalArea,$productionUnit,$totalProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_pocketarea")
 		{
@@ -154,8 +153,7 @@ if (isset($_POST['save']))
 			}
 			if($_POST['tableName']=="tbl_crop")
 			{	
-				$newId = $program->saveCrop("",$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$irrigatedArea,$unirrigatedArea,
-				$productionUnit,$irrigatedProduction,$unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,
+				$newId = $program->saveCrop("",$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$areaUnit,$totalArea,$productionUnit,$totalProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,
 				$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_pocketarea")

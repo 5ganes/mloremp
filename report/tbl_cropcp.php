@@ -9,26 +9,26 @@
             वाली
         </th>
         <th class="priceheading" style="width:112px">
-            <table>
+            <!-- <table>
                 <tr>
-                    <th colspan="20" style="border:none;">क्षेत्रफल ( हेक्टर )</th>
+                    <th colspan="20" style="border:none;"> -->क्षेत्रफल ( हेक्टर )<!-- </th>
                 </tr>
                 <tr>
                     <th class="priceheading">सिंचित</th>
                     <th class="priceheading">असिंचित</th>
                 </tr>
-            </table>
+            </table> -->
         </th>
         <th class="priceheading" style="width:112px">
-            <table>
+            <!-- <table>
                 <tr>
-                    <th colspan="20" style="border:none;">उत्पादन ( मेट्रिक टन )</th>
+                    <th colspan="20" style="border:none;"> -->उत्पादन ( मेट्रिक टन )<!-- </th>
                 </tr>
                 <tr>
                     <th class="priceheading">सिंचित</th>
                     <th class="priceheading">असिंचित</th>
                 </tr>
-            </table>
+            </table> -->
         </th>
         <th class="priceheading" style="width:56px">कृषकतह मुल्य(प्रति टन)</th>
         <th class="priceheading" style="width:56px">बजार मुल्य(प्रति टन)</th>
@@ -53,16 +53,16 @@
             <td style="" border="0">
                 <table>
                     <tr>
-                        <td class="pricedata"><?=$rec['irrigatedAreaHector'];?></td>
-                        <td class="pricedata"><?=$rec['unirrigatedAreaHector'];?></td>
+                        <td class="pricedata"><?=$rec['totalAreaHector'];?></td>
+                        <!-- <td class="pricedata"><?=$rec['unirrigatedAreaHector'];?></td> -->
                     </tr>
                 </table>
             </td>
             <td style="" border="0">
                 <table>
                     <tr>
-                        <td class="pricedata"><?=$rec['irrigatedProductionTon'];?></td>
-                        <td class="pricedata"><?=$rec['unirrigatedProductionTon'];?></td>
+                        <td class="pricedata"><?=$rec['totalProductionTon'];?></td>
+                        <!-- <td class="pricedata"><?=$rec['unirrigatedProductionTon'];?></td> -->
                     </tr>
                 </table>
             </td>

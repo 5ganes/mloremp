@@ -48,34 +48,31 @@
                 ?>
                 </select>
             </div>
-		</div>        
-    	<div class="inputleft inputright">
+		  </div>        
+    	<!-- <div class="inputleft inputright">
         	<div>सिंचित</div>
-            <div>
-            	<p><input type="text" name="irrigatedArea" class="number" value="<?=$irrigatedArea;?>" required /></p>
-          		<p class="error" id="irrigatedArea"></p>
-            </div>
-      		<div style="clear:both"></div>
-       	</div>
-        <div class="inputleft inputright">
-        	<div>असिंचित</div>
-            <div>
-            	<input type="text" name="unirrigatedArea" class="number" value="<?=$unirrigatedArea;?>" required />
-           		<p class="error" id="unirrigatedArea"></p>
-            </div>
-            <div style="clear:both"></div>
-      	</div>
-        
-        <? if(isset($_GET['id']))
-     	{?>
-        	<!--<div class="inputleft inputright">
-                <div>जम्मा :</div>
-                <div style="float:left">&nbsp;[ <?=$totalArea;?> Hector ]</div>
-                <div style="clear:both"></div>
-            </div>-->
-		<? }?>
-        
+          <div>
+            <p><input type="text" name="irrigatedArea" class="number" value="<?=$irrigatedArea;?>" required /></p>
+          	<p class="error" id="irrigatedArea"></p>
+          </div>
+      	 <div style="clear:both"></div>
+      </div>
+      <div class="inputleft inputright">
+        <div>असिंचित</div>
+        <div>
+         	<input type="text" name="unirrigatedArea" class="number" value="<?=$unirrigatedArea;?>" required />
+          <p class="error" id="unirrigatedArea"></p>
+        </div>
         <div style="clear:both"></div>
+      </div> -->  
+      <div class="inputleft inputright">
+        <div>क्षेत्रफल :</div>
+        <div>
+          <p><input type="text" name="totalArea" class="number" value="<?=$totalArea;?>" required /></p>
+          <p class="error" id="totalArea"></p>
+        </div>
+      </div>
+      <div style="clear:both"></div>
     </td>
 </tr>
 <tr><td></td></tr>
@@ -84,34 +81,43 @@
     <td>
     	<div class="inputleft">
     		<div>एकाई</div>
-            <div>
-            	<select name="productionUnit" class="text" style="width:104px;">
-				<?
-                $unit=$groups->getUnitByCategory("Price Unit");
-                while($unitGet=$conn->fetchArray($unit))
-                {?>
-                    <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$productionUnit){ echo 'selected="selected"';}?>>
-                        <?=$unitGet['name'];?>
-                    </option>
-                <? }
-                ?>
-            </select>
-            </div>
+        <div>
+        	<select name="productionUnit" class="text" style="width:104px;">
+		      <?
+            $unit=$groups->getUnitByCategory("Price Unit");
+            while($unitGet=$conn->fetchArray($unit))
+            {?>
+                <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$productionUnit){ echo 'selected="selected"';}?>>
+                    <?=$unitGet['name'];?>
+                </option>
+            <? }
+            ?>
+          </select>
         </div>
-        <div class="inputleft inputright">
-        	<div>सिंचित</div>
-        	<div>
-            	<p><input type="text" name="irrigatedProduction" class="number" value="<?=$irrigatedProduction;?>" required /></p>
-        		<p class="error" id="irrigatedProduction"></p>
+      </div>
+      <!-- <div class="inputleft inputright">
+      	<div>सिंचित</div>
+      	<div>
+          <p><input type="text" name="irrigatedProduction" class="number" value="<?=$irrigatedProduction;?>" required /></p>
+      		<p class="error" id="irrigatedProduction"></p>
+			  </div>
+      </div>
+      <div class="inputleft inputright">
+        <div>असिंचित</div>
+        <div>
+          <p><input type="text" name="unirrigatedProduction" class="number" value="<?=$unirrigatedProduction;?>" required /></p>
+        	<p class="error" id="unirrigatedProduction"></p>
   			</div>
+      </div> -->
+
+      <div class="inputleft inputright">
+        <div>उत्पादन :</div>
+        <div>
+          <p><input type="text" name="totalProduction" class="number" value="<?=$totalProduction;?>" required /></p>
+          <p class="error" id="totalProduction"></p>
         </div>
-        <div class="inputleft inputright">
-        	<div>असिंचित</div>
-        	<div>
-            	<p><input type="text" name="unirrigatedProduction" class="number" value="<?=$unirrigatedProduction;?>" required /></p>
-        		<p class="error" id="unirrigatedProduction"></p>
-  			</div>
-        </div>
+      </div>
+
     </td>
 </tr>
 <tr><td></td></tr>

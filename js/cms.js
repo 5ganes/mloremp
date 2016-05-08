@@ -338,6 +338,7 @@ function validate(fm,table)
 		$('#maleNumber').html(null);
 		
 		if(isNaN(fm.totalArea.value)){
+			//&& fm.totalArea.value!='-'
 			$('#totalArea').html('[numeric value]'); fm.totalArea.value=''; fm.totalArea.focus(); return false;
 		}
 		if(isNaN(fm.agricultureArea.value)){
@@ -383,26 +384,18 @@ function validate(fm,table)
 	else if(table=='tbl_crop')
 	{
 		//for tbl_crop fields validation
-		$('#irrigatedArea').html(null);
-		$('#unirrigatedArea').html(null);
-		$('#irrigatedProduction').html(null);
-		$('#unirrigatedProduction').html(null);
+		$('#totalArea').html(null);
+		$('#totalProduction').html(null);
 		$('#farmerPrice').html(null);
 		$('#marketPrice').html(null);
 		if(document.getElementById("cropNameError").innerHTML!=""){
 			fm.cropName.focus(); return false;		
 		}
-		if(isNaN(fm.irrigatedArea.value)){
-			$('#irrigatedArea').html('[numeric value]'); fm.irrigatedArea.value=''; fm.irrigatedArea.focus(); return false;
+		if(isNaN(fm.totalArea.value)){
+			$('#totalArea').html('[numeric value]'); fm.totalArea.value=''; fm.totalArea.focus(); return false;
 		}
-		if(isNaN(fm.unirrigatedArea.value)){
-			$('#unirrigatedArea').html('[numeric value]'); fm.unirrigatedArea.value=''; fm.unirrigatedArea.focus(); return false;
-		}
-		if(isNaN(fm.irrigatedProduction.value)){
-			$('#irrigatedProduction').html('[numeric value]'); fm.irrigatedProduction.value=''; fm.irrigatedProduction.focus(); return false;
-		}
-		if(isNaN(fm.unirrigatedProduction.value)){
-			$('#unirrigatedProduction').html('[numeric value]'); fm.unirrigatedProduction.value=''; fm.unirrigatedProduction.focus(); return false;
+		if(isNaN(fm.totalProduction.value)){
+			$('#totalProduction').html('[numeric value]'); fm.totalProduction.value=''; fm.totalProduction.focus(); return false;
 		}
 		if(isNaN(fm.farmerPrice.value)){
 			$('#farmerPrice').html('[numeric value]'); fm.farmerPrice.value=''; fm.farmerPrice.focus(); return false;
