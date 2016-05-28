@@ -44,7 +44,36 @@
 
 <!--css for crop search... also needed that jquery.js file which has also been used for datepicker-->
 <link rel="stylesheet" href="css/style.css" />
-
+<style type="text/css">
+ol.menu li {
+    margin: 0;
+    padding: 0;
+    background: #00c400;
+    color: #FFF;
+    font: bold 13px Tahoma, Geneva, sans-serif;
+}
+ol.menu li p {
+    padding: 5px 10px;
+    margin: 0;
+}
+ol.menu li ul {
+    margin: 0;
+    padding: 0;
+    background: #ececec;
+}
+ol.menu li li {
+    background: #f2fff4;
+    list-style-position: inside;
+    color: #000;
+    border-bottom: 1px solid #006193;
+    padding: 3px 10px;
+}
+ol.menu li a {
+    font: normal 11px Tahoma, Geneva, sans-serif;
+    text-decoration: none;
+    color: #000;
+}
+</style>
 </head>
 <!-- Global IE fix to avoid layout crash when single word size wider than column width -->
 <!--[if IE]><style type="text/css"> body {word-wrap: break-word;}</style><![endif]-->
@@ -90,11 +119,11 @@
     <table width="100%" border="0" align="center" cellpadding="0" cellspacing="5" bgcolor="#FFFFFF" class="program">
   	<tr>
     <td width="21%" valign="top">
-		<ul class="menu">
+		<ol class="menu">
                 
             <li>
                 <p>Manage Form Categories</p>
-                <ul>
+                <ol>
                 	<?
 					$prgm=$program->getProgramTypes();
 					while($prgmGet=$conn->fetchArray($prgm))
@@ -106,21 +135,21 @@
                             <?
                             if($prgmGet['id']==PRICE)
 							{
-								echo '<ul style="margin-left:10px">';
+								echo '<ol style="margin-left:10px">';
 								echo '<li style="border:none"><a href="manageprogram.php?page=program&groupType='.PRICE.'&priceType=पाक्षिक खुद्रा मूल्य">
 								Quarterly Retail Price</a></li>';
 								echo '<li style="border:none"><a href="manageprogram.php?page=program&groupType='.PRICE.'&priceType=पाक्षिक सिमावर्तिय खुद्रा मूल्य">
 								Quarterly Border Retail Price</a></li>';
 								echo '<li style="border:none"><a href="manageprogram.php?page=program&groupType='.PRICE.'&priceType=पाक्षिक थोक मूल्य">
 								Quarterly Wholesale Price</a></li>';
-								echo "</ul>";
+								echo "</ol>";
 							}?>
                       	</li>
                     <? }?>
                     
-                </ul>
+                </ol>
             </li>
-        </ul>
+        </ol>
  	</td>
     
     <td width="79%" valign="top">
