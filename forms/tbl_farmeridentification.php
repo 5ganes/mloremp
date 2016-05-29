@@ -42,7 +42,7 @@
 <tr>
     <td><strong class="fronttitle">कृषकको उमेर</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<div class="inputleft inputright" style="width:14%;">
+    	<div class="inputleft inputright" style="width:14%; margin-left: 0">
     		<p><input type="text" name="farmerAge" class="number" value="<?=$farmerAge;?>" required /></p>
         	<p class="error" id="farmerAge"></p>
     	</div>
@@ -51,9 +51,9 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">कृषकको जात</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">जात/जाती</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<div class="inputleft inputright" style="width:26%;">
+    	<div class="inputleft inputright" style="width:26%; margin-left: 0">
     		<select name="farmerCaste" class="text">
 			<?
             $caste=$program->getCaste();
@@ -71,7 +71,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">कृषकले प्राप्त गरेको आइडीको किसिम</strong> :</td>
+    <td><strong class="fronttitle">प्राप्त गरेको आइडीको किसिम</strong> :</td>
     <td >
     	<select name="farmerIdType" class="text">
 			<?

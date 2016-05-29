@@ -44,8 +44,7 @@
 
 <!--css for crop search... also needed that jquery.js file which has also been used for datepicker-->
 <link rel="stylesheet" href="css/style.css" />
-<style type="text/css">
-ol.menu li {
+<style type="text/css">ol.menu li {
     margin: 0;
     padding: 0;
     background: #00c400;

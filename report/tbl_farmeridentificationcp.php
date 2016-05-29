@@ -18,8 +18,8 @@
             </table>
         </th>
         <th class="priceheading" style="width:56px">कृषकको उमेर</th>
-        <th class="priceheading" style="width:80px">कृषकको जात</th>
-        <th class="priceheading" style="width:140px">कृषकले प्राप्त गरेको आइडीको किसिम</th>
+        <th class="priceheading" style="width:80px">जात/जाती</th>
+        <th class="priceheading" style="width:140px">प्राप्त गरेको आइडीको किसिम</th>
     </tr>
     <? while($rec=$conn->fetchArray($record))
 	{?>
