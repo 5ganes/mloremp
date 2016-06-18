@@ -1,3 +1,15 @@
+<script type="text/javascript">
+  function confirmDelete(url){
+    //alert(url); return false;
+    if(confirm("Are you sure want to delete?")){
+      $(location).attr("href", url);
+    }
+    else{
+      return false;
+    }
+  }
+</script>
+
 <table width="100%" border="0" cellspacing="0" cellpadding="2">
   	<tr>
     	<td colspan="8" class="heading2">
@@ -67,7 +79,7 @@
       				$priceType="&priceType=".$_GET['priceType'];
                 }?>
                 <a href="manageprogram.php?page=program&groupType=<?=$_GET['groupType']?><?=$priceType?>&id=<?php echo $row['id']; ?>">Edit</a> /      			
-      			<a href="program/manage_program.php?groupType=<?php echo $_GET['groupType'];?><?=$priceType?>&id=<?php echo $row['id']; ?>&delete">Delete</a>
+      			<a href="javascript:void(0)" onClick="confirmDelete('program/manage_program.php?groupType=<?php echo $_GET['groupType'];?><?=$priceType?>&id=<?php echo $row['id']; ?>&delete')">Delete</a>
         	</td>
   		</tr>
   		

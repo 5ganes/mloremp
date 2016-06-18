@@ -72,7 +72,7 @@
             <div>
             	<select name="registeredYear" class="text" style="width:105px">
 					<?
-                        for($year=2060;$year<=date("y")+2056;$year++)
+                        for($year=2050;$year<=date("y")+2056;$year++)
                         {?>
                          <option value="<? echo $year;?>" <? if($year==$registeredYear){ echo 'selected="selected"';}?>>
                             <? echo $year;?>
