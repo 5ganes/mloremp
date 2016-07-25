@@ -80,6 +80,24 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">नवीकरण</strong> :</td>
+    <td>
+        <select name="renewStatus" class="text">
+            <?
+            $unit=$groups->getUnitByCategory("नवीकरण");
+            while($unitGet=$conn->fetchArray($unit))
+            {?>
+                <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$renewStatus){ echo 'selected="selected"';}?>>
+                    <?=$unitGet['name'];?>
+                </option>  
+            <? }
+            ?>
+        </select>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
 	<td><strong class="fronttitle">दर्ता भएको वर्ष</strong> :</td>
 	<td>
     	<select name="registeredYear" class="text" style="width:120px">

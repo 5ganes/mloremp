@@ -40,6 +40,7 @@
             </table>
         </th>
         <th class="priceheading" style="width:220px">बालीहरु</th>
+        <th class="priceheading" style="width:240px">आधारभूत सेवा</th>
         
         <th class="priceheading" style="width:160px">
             <table>
@@ -113,6 +114,15 @@
                     <tr>
                         <td class="pricedata" colspan="20">
                             <? echo $rec['firstCrop'],", ".$rec['secondCrop'].", ".$rec['thirdCrop'];?>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td border="0">
+                <table style="width:100%">
+                    <tr>
+                        <td class="pricedata" colspan="20">
+                            <? $unit=$program->getUnitById($rec['fundamentalService']); echo $unit['name'];?>
                         </td>
                     </tr>
                 </table>

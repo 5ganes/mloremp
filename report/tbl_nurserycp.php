@@ -20,6 +20,10 @@
         <th class="priceheading" style="width:145px">दर्ता भएको/नभएको</th>
         <th class="priceheading" style="width:160px">दर्ता मिती</th>
         <th class="priceheading" style="width:230px">स्रोत केन्द्रवाट प्रवाह हुने वस्तु तथा सेवा</th>
+
+        <th class="priceheading" style="width:150px">विरुवा संख्या</th>
+        <th class="priceheading" style="width:150px">फलफुल संख्या</th>
+
         <th class="priceheading" style="width:150px">सम्पर्क व्यक्ति</th>
         <th class="priceheading" style="width:130px">फोन नं.</th>
     </tr>
@@ -65,6 +69,19 @@
                     <tr><td class="pricedata"><?=$rec['shrotKendraService'];?></td></tr>
                 </table>
             </td>
+
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata"><?=$rec['plantNumber'];?></td></tr>
+                </table>
+            </td>
+
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata"><?=$rec['fruitNumber'];?></td></tr>
+                </table>
+            </td>
+
             <td border="0">
                 <table>
                     <tr><td class="pricedata"><?=$rec['contactPerson'];?></td></tr>

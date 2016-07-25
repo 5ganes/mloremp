@@ -127,6 +127,25 @@
   	</td>
 </tr>
 <tr><td></td></tr>
+
+<tr>
+    <td><strong class="fronttitle">आधारभूत सेवा</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <select name="fundamentalService" class="number" style="width:104px; height:20px;">
+          <?
+          $unit=$groups->getUnitByCategory("आधारभूत सेवा");
+          while($unitGet=$conn->fetchArray($unit))
+          {?>
+              <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$fundamentalService){ echo 'selected="selected"';}?>>
+                  <?=$unitGet['name'];?>
+              </option>  
+          <? }
+          ?>
+        </select>
+    </td>
+</tr>
+<tr><td></td></tr>
+
 <tr>
     <td><strong class="fronttitle"> क्षेत्रफल</strong> :<span class="asterisk">*</span></td>
     <td>
@@ -222,8 +241,8 @@
     		</div>
             <div style="clear:both"></div>
      	</div>
-        <div class="inputleft inputright">
-        	<div>मुल्य (Rs)</div>
+        <div class="inputleft inputright" style="width: 27%">
+        	<div>मुल्य (हजारमा)</div>
             <div>
             	<p><input type="text" name="farmerPrice" class="number" value="<?=$farmerPrice;?>" required /></p>
           		<p class="error" id="farmerPrice"></p>
@@ -254,8 +273,8 @@
            	</div>
             <div style="clear:both"></div>
       	</div>
-        <div class="inputleft inputright">
-    		<div>मुल्य (Rs)</div>
+        <div class="inputleft inputright" style="width: 27%">
+    		<div>मुल्य (हजारमा)</div>
             <div>
             	<p><input type="text" name="marketPrice" class="number" value="<?=$marketPrice;?>" required /></p>
           		<p class="error" id="marketPrice"></p>

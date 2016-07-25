@@ -57,12 +57,12 @@ class Program
         return $result;
     }
     
-    function getLastWeight($programId)
+    function getLastWeight($programId,$userId)
     {
         global $conn;
         $table=$this->getTypeById(cleanQuery($programId));
         $table=$table['table_name'];
-        $sql = "SElECT weight FROM $table ORDER BY weight DESC LIMIT 1";
+        $sql = "SElECT weight FROM $table where userId='$userId' ORDER BY weight DESC LIMIT 1";
         $result = $conn->exec($sql);
         $numRows = $conn -> numRows($result);
         if($numRows > 0)
@@ -301,7 +301,7 @@ class Program
     }
     
     function savePocketArea($id,$fiscalYear,$userId,$manualDate,$pocketAreaName,$totalFamilyNumber,$totalPopulation,$farmerFamilyNumber,$farmerPopulation,
-    $femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,$irrigatedProduction,
+    $femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$fundamentalService,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,$irrigatedProduction,
     $unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight)
     {
         global $conn;
@@ -320,6 +320,7 @@ class Program
         $firstCrop = cleanQuery($firstCrop);
         $secondCrop = cleanQuery($secondCrop);
         $thirdCrop = cleanQuery($thirdCrop);
+        $fundamentalService = cleanQuery($fundamentalService);
         $areaUnit = cleanQuery($areaUnit);
         $irrigatedArea = cleanQuery($irrigatedArea);
         $unirrigatedArea = cleanQuery($unirrigatedArea);
@@ -369,6 +370,7 @@ class Program
                             firstCrop = '$firstCrop',
                             secondCrop = '$secondCrop',
                             thirdCrop = '$thirdCrop',
+                            fundamentalService = '$fundamentalService',
                             areaUnit = '$areaUnit',
                             irrigatedArea = '$irrigatedArea',
                             irrigatedAreaHector = '$irrigatedAreaHector',
@@ -405,6 +407,7 @@ class Program
                             firstCrop = '$firstCrop',
                             secondCrop = '$secondCrop',
                             thirdCrop = '$thirdCrop',
+                            fundamentalService = '$fundamentalService',
                             areaUnit = '$areaUnit',
                             irrigatedArea = '$irrigatedArea',
                             irrigatedAreaHector = '$irrigatedAreaHector',
@@ -433,7 +436,7 @@ class Program
     }
     
     function saveNursery($id,$fiscalYear,$userId,$manualDate,$shrotKendra,$addressVdcMunicipality,$addressWardNumber,$registration,$registeredDay,
-    $registeredMonth,$registeredYear,$shrotKendraService,$contactPerson,$phoneNumber,$publish,$weight)
+    $registeredMonth,$registeredYear,$shrotKendraService,$plantNumber,$fruitNumber,$contactPerson,$phoneNumber,$publish,$weight)
     {
         global $conn;
         
@@ -450,6 +453,9 @@ class Program
         $registeredYear = cleanQuery($registeredYear);
         $shrotKendraService = implode(",", $shrotKendraService);
         //echo $shrotKendraService; die();
+
+        $plantNumber = cleanQuery($plantNumber);
+        $fruitNumber = cleanQuery($fruitNumber);
         $contactPerson = cleanQuery($contactPerson);
         $phoneNumber = cleanQuery($phoneNumber);
         
@@ -470,6 +476,8 @@ class Program
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
                             shrotKendraService = '$shrotKendraService',
+                            plantNumber = '$plantNumber',
+                            fruitNumber = '$fruitNumber',
                             contactPerson = '$contactPerson',
                             phoneNumber = '$phoneNumber',
                             publish = '$publish',
@@ -490,6 +498,8 @@ class Program
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
                             shrotKendraService = '$shrotKendraService',
+                            plantNumber = '$plantNumber',
+                            fruitNumber = '$fruitNumber',
                             contactPerson = '$contactPerson',
                             phoneNumber = '$phoneNumber',
                             publish = '$publish',
@@ -708,7 +718,7 @@ class Program
     
     //for fertilizer
     function saveFertilizer($id,$fiscalYear,$userId,$manualDate,$sellingOffice,$sellingOfficeType,$addressVdcMunicipality,$addressWardNumber,$proprietorName,$contactNumber,
-    $registrationNumber,$registeredYear,$sellingObject,$remarks,$publish,$weight)
+    $registrationNumber,$renewStatus,$registeredYear,$sellingObject,$remarks,$publish,$weight)
     {
         global $conn;
         
@@ -723,6 +733,7 @@ class Program
         $proprietorName = cleanQuery($proprietorName);
         $contactNumber = cleanQuery($contactNumber);
         $registrationNumber = cleanQuery($registrationNumber);
+        $renewStatus = cleanQuery($renewStatus);
         $registeredYear = cleanQuery($registeredYear);
         $sellingObject = implode(",", $sellingObject);
         $remarks = cleanQuery($remarks);
@@ -743,6 +754,7 @@ class Program
                             proprietorName = '$proprietorName',
                             contactNumber = '$contactNumber',
                             registrationNumber = '$registrationNumber',
+                            renewStatus = '$renewStatus',
                             registeredYear = '$registeredYear',
                             sellingObject = '$sellingObject',
                             remarks = '$remarks',
@@ -763,6 +775,7 @@ class Program
                             proprietorName = '$proprietorName',
                             contactNumber = '$contactNumber',
                             registrationNumber = '$registrationNumber',
+                            renewStatus = '$renewStatus',
                             registeredYear = '$registeredYear',
                             sellingObject = '$sellingObject',
                             remarks = '$remarks',
@@ -779,7 +792,7 @@ class Program
     
     //for agrigroups
     function saveAgrigroups($id,$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,$femaleNumber,
-    $maleNumber,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,$debtAmount,$groupStatus,
+    $maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,$debtAmount,$groupStatus,
     $contactPerson,$publish,$weight)
     {
         global $conn;
@@ -794,6 +807,7 @@ class Program
         $establishedYear = cleanQuery($establishedYear);
         $femaleNumber = cleanQuery($femaleNumber);
         $maleNumber = cleanQuery($maleNumber);
+        $groupType = cleanQuery($groupType);
         $registeredDay = cleanQuery($registeredDay);
         $registeredMonth = cleanQuery($registeredMonth);
         $registeredYear = cleanQuery($registeredYear);
@@ -820,6 +834,7 @@ class Program
                             establishedYear = '$establishedYear',
                             femaleNumber = '$femaleNumber',
                             maleNumber = '$maleNumber',
+                            groupType = '$groupType',
                             registeredDay = '$registeredDay',
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
@@ -846,6 +861,7 @@ class Program
                             establishedYear = '$establishedYear',
                             femaleNumber = '$femaleNumber',
                             maleNumber = '$maleNumber',
+                            groupType = '$groupType',
                             registeredDay = '$registeredDay',
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
@@ -952,7 +968,7 @@ class Program
     
     //for market
     function saveMarket($id,$fiscalYear,$userId,$manualDate,$marketName,$marketType,$marketAreaUnit,$marketArea,$establishedYear,$addressVdcMunicipality,
-    $addressWardNumber,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,$agricultureProductTradeAmount,
+    $addressWardNumber,$command_vdc_mun_number,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,$agricultureProductTradeAmount,
     $contactPerson,$publish,$weight)
     {
         global $conn;
@@ -975,6 +991,7 @@ class Program
         $establishedYear = cleanQuery($establishedYear);
         $addressVdcMunicipality = cleanQuery($addressVdcMunicipality);
         $addressWardNumber = cleanQuery($addressWardNumber);
+        $command_vdc_mun_number = cleanQuery($command_vdc_mun_number);
         $marketDay = cleanQuery($marketDay);
         $governmentInvestment = cleanQuery($governmentInvestment);
         $agricultureProductTradeUnit = cleanQuery($agricultureProductTradeUnit);
@@ -1004,6 +1021,7 @@ class Program
                             establishedYear = '$establishedYear',
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
+                            command_vdc_mun_number = '$command_vdc_mun_number',
                             marketDay = '$marketDay',
                             governmentInvestment = '$governmentInvestment',
                             agricultureProductTradeUnit = '$agricultureProductTradeUnit',
@@ -1029,6 +1047,7 @@ class Program
                             establishedYear = '$establishedYear',
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
+                            command_vdc_mun_number = '$command_vdc_mun_number',
                             marketDay = '$marketDay',
                             governmentInvestment = '$governmentInvestment',
                             agricultureProductTradeUnit = '$agricultureProductTradeUnit',
@@ -1048,7 +1067,7 @@ class Program
     }
     
     //for insuranceinfo
-    function saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,$remarks,$publish,$weight)
+    function saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,$remarks,$publish,$weight)
     {
         global $conn;
         
@@ -1056,6 +1075,7 @@ class Program
         $fiscalYear = cleanQuery($fiscalYear);
         $userId = cleanQuery($userId);
         $manualDate = cleanQuery($manualDate);
+        $insuranceHolder = cleanQuery($insuranceHolder);
         $cropName = cleanQuery($cropName);
         $cropCode = cleanQuery($cropCode);
         $cropAreaUnit = cleanQuery($cropAreaUnit);
@@ -1080,6 +1100,7 @@ class Program
                             fiscalYear = '$fiscalYear',
                             userId = '$userId',
                             manualDate = '$manualDate',
+                            insuranceHolder = '$insuranceHolder',
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             cropAreaUnit = '$cropAreaUnit',
@@ -1098,6 +1119,7 @@ class Program
                             fiscalYear = '$fiscalYear',
                             userId = '$userId',
                             manualDate = '$manualDate',
+                            insuranceHolder = '$insuranceHolder',
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             cropAreaUnit = '$cropAreaUnit',

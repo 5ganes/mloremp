@@ -73,6 +73,24 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">समूहको प्रकार</strong> :</td>
+    <td>
+        <select name="groupType" class="number" style="width:150px;">
+            <?
+            $unit=$groups->getUnitByCategory("समूहको प्रकार");
+            while($unitGet=$conn->fetchArray($unit))
+            {?>
+                <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$groupType){ echo 'selected="selected"';}?>>
+                    <?=$unitGet['name'];?>
+                </option>  
+            <? }
+            ?>
+        </select>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">दर्ता मिति</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:32%">
@@ -158,8 +176,8 @@
 <tr>
     <td><strong class="fronttitle">कोष संकलन(प्रति महिना)</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<div class="inputleft" style="width:14%">
-    		<p><input type="text" name="collectedFundPerMonth" class="number" value="<?=$collectedFundPerMonth;?>" required /></p>
+    	<div class="inputleft" style="width:25%">
+    		<p><input type="text" name="collectedFundPerMonth" class="number" value="<?=$collectedFundPerMonth;?>" required /> (हजारमा)</p>
         	<p class="error" id="collectedFundPerMonth"></p>
     	</div>
         <div style="clear:both"></div>
@@ -170,8 +188,8 @@
 <tr>
     <td><strong class="fronttitle">हाल सम्मको जम्मा कोष</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<div class="inputleft" style="width:14%">
-    		<p><input type="text" name="totalFund" class="number" value="<?=$totalFund;?>" required /></p>
+    	<div class="inputleft" style="width:25%">
+    		<p><input type="text" name="totalFund" class="number" value="<?=$totalFund;?>" required /> (हजारमा)</p>
         	<p class="error" id="totalFund"></p>
     	</div>
         <div style="clear:both"></div>
@@ -182,8 +200,8 @@
 <tr>
     <td><strong class="fronttitle">कोष परिचालन(ऋण प्रवाह)(Rs)</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<div class="inputleft" style="width:14%">
-    		<p><input type="text" name="debtAmount" class="number" value="<?=$debtAmount;?>" required /></p>
+    	<div class="inputleft" style="width:25%">
+    		<p><input type="text" name="debtAmount" class="number" value="<?=$debtAmount;?>" required /> (हजारमा)</p>
         	<p class="error" id="debtAmount"></p>
     	</div>
         <div style="clear:both"></div>

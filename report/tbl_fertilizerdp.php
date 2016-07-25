@@ -20,6 +20,7 @@
         <th class="priceheading" style="width:350px">प्रोपाइटरको नाम</th>
         <th class="priceheading" style="width:220px">सम्पर्क नं.</th>
         <th class="priceheading" style="width:105px">दर्ता नं.</th>
+        <th class="priceheading" style="width:105px">नवीकरण</th>
         <th class="priceheading" style="width:155px">दर्ता भएको वर्ष</th>
         <th class="priceheading" style="width:330px">विक्रि हुने बस्तु</th>
         <th class="priceheading" style="width:330px">कैफियत</th>
@@ -49,6 +50,9 @@
             </td>
             <td border="0" class="pricedata">
                 <?=$rec['registrationNumber'];?>
+            </td>
+            <td border="0" class="pricedata">
+                <? $unt=$program->getUnitById($rec['renewStatus']); echo $unt['name'];?>
             </td>
             <td border="0" class="pricedata">
                 <?=$rec['registeredYear'];?>

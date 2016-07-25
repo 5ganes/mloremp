@@ -1,4 +1,14 @@
 <tr>
+    <td><strong class="fronttitle">विमकको नाम</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="margin-left: 0">
+            <p><input type="text" name="insuranceHolder" class="text" value="<?=$insuranceHolder;?>" required /></p>
+            <p class="error" id="insuranceHolder"></p>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+<tr>
     <td><strong class="fronttitle">विमित बाली</strong> :<span class="asterisk">*</span></td>
     <td>
         <div class="inputleft">
@@ -63,7 +73,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">विमांक रकम(रु)</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">विमांक रकम(हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
         <div class="inputleft inputright" style="width:14%">
             <p><input type="text" name="insuranceAmount" class="number" value="<?=$insuranceAmount;?>" required /></p>

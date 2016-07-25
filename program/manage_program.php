@@ -26,14 +26,14 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_pocketarea")
 		{
 			$program->savePocketArea($id,$fiscalYear,$userId,$manualDate,$pocketAreaName,$totalFamilyNumber,$totalPopulation,$farmerFamilyNumber,
-			$farmerPopulation,$femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
+			$farmerPopulation,$femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$fundamentalService,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
 			$irrigatedProduction,$unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_nursery")
 		{
 			$shrotKendraService=$_POST['sks'];
 			$program->saveNursery($id,$fiscalYear,$userId,$manualDate,$shrotKendra,$addressVdcMunicipality,$addressWardNumber,$registration,$registeredDay,
-			$$registeredMonth,$registeredYear,$shrotKendraService,$contactPerson,$phoneNumber,$publish,$weight);
+			$$registeredMonth,$registeredYear,$shrotKendraService,$plantNumber,$fruitNumber,$contactPerson,$phoneNumber,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_cropcutting")
 		{
@@ -52,12 +52,12 @@ if (isset($_POST['save']))
 		{
 			$sellingObject=$_POST['sobj'];
 			$newId = $program->saveFertilizer($id,$fiscalYear,$userId,$manualDate,$sellingOffice,$sellingOfficeType,$addressVdcMunicipality,$addressWardNumber,
-			$proprietorName,$contactNumber,$registrationNumber,$registeredYear,$sellingObject,$remarks,$publish,$weight);
+			$proprietorName,$contactNumber,$registrationNumber,$renewStatus,$registeredYear,$sellingObject,$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_agrigroups")
 		{
 			$newId = $program->saveAgrigroups($id,$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,
-			$femaleNumber,$maleNumber,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
+			$femaleNumber,$maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
 			$debtAmount,$groupStatus,$contactPerson,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_agricoop")
@@ -69,12 +69,12 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_market")
 		{
 			$newId = $program->saveMarket($id,$fiscalYear,$userId,$manualDate,$marketName,$marketType,$marketAreaUnit,$marketArea,$establishedYear,
-			$addressVdcMunicipality,$addressWardNumber,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,
+			$addressVdcMunicipality,$addressWardNumber,$command_vdc_mun_number,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,
 			$agricultureProductTradeAmount,$contactPerson,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_insuranceinfo")
 		{
-			$newId = $program->saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
+			$newId = $program->saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
 			$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_farmeridentification")
@@ -159,14 +159,14 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_pocketarea")
 			{
 				$program->savePocketArea("",$fiscalYear,$userId,$manualDate,$pocketAreaName,$totalFamilyNumber,$totalPopulation,$farmerFamilyNumber,
-				$farmerPopulation,$femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
+				$farmerPopulation,$femaleNumber,$maleNumber,$firstCrop,$secondCrop,$thirdCrop,$fundamentalService,$areaUnit,$irrigatedArea,$unirrigatedArea,$productionUnit,
 				$irrigatedProduction,$unirrigatedProduction,$farmerUnit,$farmerPrice,$marketUnit,$marketPrice,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_nursery")
 			{
 				$shrotKendraService=$_POST['sks'];
 				$newId = $program->saveNursery("",$fiscalYear,$userId,$manualDate,$shrotKendra,$addressVdcMunicipality,$addressWardNumber,$registration,
-				$registeredDay,$registeredMonth,$registeredYear,$shrotKendraService,$contactPerson,$phoneNumber,$publish,$weight);
+				$registeredDay,$registeredMonth,$registeredYear,$shrotKendraService,$plantNumber,$fruitNumber,$contactPerson,$phoneNumber,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_cropcutting")
 			{
@@ -185,12 +185,12 @@ if (isset($_POST['save']))
 			{
 				$sellingObject=$_POST['sobj'];
 				$newId = $program->saveFertilizer("",$fiscalYear,$userId,$manualDate,$sellingOffice,$sellingOfficeType,$addressVdcMunicipality,
-				$addressWardNumber,$proprietorName,$contactNumber,$registrationNumber,$registeredYear,$sellingObject,$remarks,$publish,$weight);
+				$addressWardNumber,$proprietorName,$contactNumber,$registrationNumber,$renewStatus,$registeredYear,$sellingObject,$remarks,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_agrigroups")
 			{
 				$newId = $program->saveAgrigroups("",$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,
-				$femaleNumber,$maleNumber,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
+				$femaleNumber,$maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
 				$debtAmount,$groupStatus,$contactPerson,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_agricoop")
@@ -202,12 +202,12 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_market")
 			{
 				$newId = $program->saveMarket("",$fiscalYear,$userId,$manualDate,$marketName,$marketType,$marketAreaUnit,$marketArea,$establishedYear,
-				$addressVdcMunicipality,$addressWardNumber,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,
+				$addressVdcMunicipality,$addressWardNumber,$command_vdc_mun_number,$marketDay,$governmentInvestment,$agricultureProductTradeUnit,$agricultureProductTradeQuantity,
 				$agricultureProductTradeAmount,$contactPerson,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_insuranceinfo")
 			{
-				$newId = $program->saveInsuranceInfo("",$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
+				$newId = $program->saveInsuranceInfo("",$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
 				$remarks,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_farmeridentification")

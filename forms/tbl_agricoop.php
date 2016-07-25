@@ -140,7 +140,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">हाल सम्मको जम्मा कोष</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">हाल सम्मको जम्मा कोष (हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:14%">
     		<p><input type="text" name="totalFund" class="number" value="<?=$totalFund;?>" required /></p>
@@ -152,7 +152,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">कोष परिचालन(ऋण प्रवाह)(Rs)</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">कोष परिचालन(ऋण प्रवाह)(हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:14%">
     		<p><input type="text" name="debtAmount" class="number" value="<?=$debtAmount;?>" required /></p>

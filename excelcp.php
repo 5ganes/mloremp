@@ -58,6 +58,7 @@ else if($typeId==POCKETAREA){
 	//Store it into the array
 	while ($row = mysql_fetch_array($record))
 	{
+		$funSer=$program->getUnitById($row['fundamentalService']); $fS[]=$funSer['name'];
 		$fYear[] =$row["fiscalYear"];$pAName[]=$row['pocketAreaName'];$tFNumber[]=$row['totalFamilyNumber'];$tPopulation[]=$row['totalPopulation'];
 		$fNumber[]=$row['femaleNumber'];$mNumber[]=$row['maleNumber'];$fFNumber[]=$row['farmerFamilyNumber'];$fPopulation[]=$row['farmerPopulation'];
 		$cName[]=$row['firstCrop'].",".$row['secondCrop'].",".$row['thirdCrop'];
@@ -65,11 +66,11 @@ else if($typeId==POCKETAREA){
 		$uProduction[]=$row['unirrigatedProductionTon'];$fPrice[]=$row['farmerPriceTon'];$mPrice[]=$row['marketPriceTon'];
 	};
 	fputcsv($output, array('Fiscal Year','Pocket Area','Total Family Number','Total Population','Female Number','Male Number','Farmer Family Number',
-	'Farmer Population','Crops','Irrigated Area(H)','Unirrigated Area(H)','Irrigated Production(T)','Unirrigated Production(T)','Farmer Price(per ton)',
+	'Farmer Population','Crops','Fundamental Service','Irrigated Area(H)','Unirrigated Area(H)','Irrigated Production(T)','Unirrigated Production(T)','Farmer Price(per ton)',
 	'Market Price(per ton)'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$pAName[$c],$tFNumber[$c],$tPopulation[$c],$fNumber[$c],$mNumber[$c],$fFNumber[$c],$fPopulation[$c],$cName[$c],
+		fputcsv($output, array($fYear[$c],$pAName[$c],$tFNumber[$c],$tPopulation[$c],$fNumber[$c],$mNumber[$c],$fFNumber[$c],$fPopulation[$c],$cName[$c],$fS[$c],
 		$iArea[$c],$uArea[$c],$iProduction[$c],$uProduction[$c],$fPrice[$c],$mPrice[$c]));	
 	}	
 }
@@ -80,14 +81,14 @@ else if($typeId==NURSERY){
 	{
 		$r=$program->getUnitById($row['registration']);
 		$fYear[] =$row["fiscalYear"];$sKendra[]=$row['shrotKendra'];$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];
-		$reg[]=$r['name'];$rDate[]=$row['registeredDay']."/".$row['registeredMonth']."/".$row['registeredYear'];$sKService[]=$row['shrotKendraService'];
+		$reg[]=$r['name'];$rDate[]=$row['registeredDay']."/".$row['registeredMonth']."/".$row['registeredYear'];$sKService[]=$row['shrotKendraService'];$plntNum[]=$row['plantNumber'];$frutNum[]=$row['fruitNumber'];
 		$cPerson[]=$row['contactPerson'];$pNumber[]=$row['phoneNumber'];
 	};
-	fputcsv($output, array('Fiscal Year','Shrot Kendra','VDC/Municipality','Ward No','Registration','Registration Date','Shrot Kendra Service',
+	fputcsv($output, array('Fiscal Year','Shrot Kendra','VDC/Municipality','Ward No','Registration','Registration Date','Shrot Kendra Service','Plant Number','Fruit Number',
 	'Contact Person','Phone Number'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$sKendra[$c],$vdc[$c],$ward[$c],$reg[$c],$rDate[$c],$sKService[$c],$cPerson[$c],$pNumber[$c]));	
+		fputcsv($output, array($fYear[$c],$sKendra[$c],$vdc[$c],$ward[$c],$reg[$c],$rDate[$c],$sKService[$c],$plntNum[$c],$frutNum[$c],$cPerson[$c],$pNumber[$c]));	
 	}	
 }
 else if($typeId==CROPCUTTING){
@@ -138,15 +139,16 @@ else if($typeId==FERTILIZER){
 	while ($row = mysql_fetch_array($record))
 	{
 		$sot=$program->getUnitById($row['sellingOfficeType']);
+		$renewType=$program->getUnitById($row['renewStatus']);
 		$fYear[] =$row["fiscalYear"];$sOffice[]=$row['sellingOffice'];$sOType[]=$sot['name'];$vdc[]=$row['addressVdcMunicipality'];
-		$ward[]=$row['addressWardNumber'];$pName[]=$row['proprietorName'];$cNumber[]=$row['contactNumber'];$rNumber[]=$row['registrationNumber'];
+		$ward[]=$row['addressWardNumber'];$pName[]=$row['proprietorName'];$cNumber[]=$row['contactNumber'];$rNumber[]=$row['registrationNumber'];$rType[]=$renewType['name'];
 		$rYear[]=$row['registeredYear'];$sObject[]=$row['sellingObject'];$rem[]=$row['remarks'];
 	};
-	fputcsv($output, array('Fiscal Year','Selling Office','Office Type','VDC/Municipality','Ward No','Proprietor Name','Contact Number','Registration No',
+	fputcsv($output, array('Fiscal Year','Selling Office','Office Type','VDC/Municipality','Ward No','Proprietor Name','Contact Number','Registration No','Renew Status',
 	'Registered Year','Selling Object','Remarks'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$sOffice[$c],$sOType[$c],$vdc[$c],$ward[$c],$pName[$c],$cNumber[$c],$rNumber[$c],$rYear[$c],$sObject[$c],$rem[$c]));	
+		fputcsv($output, array($fYear[$c],$sOffice[$c],$sOType[$c],$vdc[$c],$ward[$c],$pName[$c],$cNumber[$c],$rNumber[$c],$rType[$c],$rYear[$c],$sObject[$c],$rem[$c]));	
 	}	
 }
 else if($typeId==GROUPS){
@@ -196,12 +198,13 @@ else if($typeId==MARKET){
 		$fYear[] =$row["fiscalYear"];$mName[]=$row['marketName'];$mType[]=$mt['name'];$mArea[]=$row['marketAreaHector'];$eYear[]=$row['establishedYear'];
 		$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];$mDay[]=$row['marketDay'];$gInvestment[]=$row['governmentInvestment'];
 		$aPTQuantity[]=$row['agricultureProductTradeQuantityTon'];$aPTAmount[]=$row['agricultureProductTradeAmount'];$cPerson[]=$row['contactPerson'];
+		$command_vdc_mun=$row['command_vdc_mun_number'];
 	};
-	fputcsv($output, array('Fiscal Year','Market Name','Market Type','Market Area(H)','Established Year','VDC/Municipality','Ward No','Market Day(Weekly)',
+	fputcsv($output, array('Fiscal Year','Market Name','Market Type','Market Area(H)','Established Year','VDC/Municipality','Ward No','Command VDC/Municipality','Market Day(Weekly)',
 	'Government Investment(Rs)','Agri Product Trade Quantity(T)','Agri Product Trade Amount(Rs)','Contact Person'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$mName[$c],$mType[$c],$mArea[$c],$eYear[$c],$vdc[$c],$ward[$c],$mDay[$c],$gInvestment[$c],$aPTQuantity[$c],
+		fputcsv($output, array($fYear[$c],$mName[$c],$mType[$c],$mArea[$c],$eYear[$c],$vdc[$c],$ward[$c],$command_vdc_mun[$c],$mDay[$c],$gInvestment[$c],$aPTQuantity[$c],
 		$aPTAmount[$c],$cPerson[$c]));	
 	}	
 }
@@ -210,12 +213,13 @@ else if($typeId==INSURANCE){
 	//Store it into the array
 	while ($row = mysql_fetch_array($record))
 	{
-		$fYear[] =$row["fiscalYear"];$cName[]=$row['cropName'];$cArea[]=$row['cropAreaHector'];$iAmount[]=$row['insuranceAmount'];$rem[]=$row['remarks'];
+		$fYear[] =$row["fiscalYear"];$insName[]=$row['insuranceHolder'];$cName[]=$row['cropName'];
+		$cArea[]=$row['cropAreaHector'];$iAmount[]=$row['insuranceAmount'];$rem[]=$row['remarks'];
 	};
-	fputcsv($output, array('Fiscal Year','Crop Name','Crop Area(H)','Insurance Amount(Rs)','Remarks'));
+	fputcsv($output, array('Fiscal Year','Insurance Holder','Crop Name','Crop Area(H)','Insurance Amount(Rs)','Remarks'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$cName[$c],$cArea[$c],$iAmount[$c],$rem[$c]));	
+		fputcsv($output, array($fYear[$c],$insName[$c],$cName[$c],$cArea[$c],$iAmount[$c],$rem[$c]));	
 	}	
 }
 else if($typeId==FARMER){

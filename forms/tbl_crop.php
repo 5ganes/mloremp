@@ -141,8 +141,8 @@
     		</div>
             <div style="clear:both"></div>
      	</div>
-        <div class="inputleft inputright">
-        	<div>मुल्य (Rs)</div>
+        <div class="inputleft inputright" style="width: 27%">
+        	<div>मुल्य (हजारमा)</div>
             <div>
             	<p><input type="text" name="farmerPrice" class="number" value="<?=$farmerPrice;?>" required /></p>
           		<p class="error" id="farmerPrice"></p>
@@ -173,8 +173,8 @@
            	</div>
             <div style="clear:both"></div>
       	</div>
-        <div class="inputleft inputright">
-    		<div>मुल्य (Rs)</div>
+        <div class="inputleft inputright" style="width: 27%">
+    		<div>मुल्य (हजारमा)</div>
             <div>
             	<p><input type="text" name="marketPrice" class="number" value="<?=$marketPrice;?>" required /></p>
           		<p class="error" id="marketPrice"></p>

@@ -139,6 +139,23 @@
     </td>
 </tr>
 <tr><td></td></tr>
+
+<tr>
+    <td><strong class="fronttitle">विरुवा संख्या</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <p><input type="number" class="number" name="plantNumber" value="<?=$plantNumber;?>" required /></p>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
+    <td><strong class="fronttitle">फलफुल संख्या</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <p><input type="number" class="number" name="fruitNumber" value="<?=$fruitNumber;?>" required /></p>
+    </td>
+</tr>
+<tr><td></td></tr>
+
 <tr>
     <td><strong class="fronttitle">सम्पर्क व्यक्ति</strong> :<span class="asterisk">*</span></td>
     <td>

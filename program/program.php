@@ -205,7 +205,7 @@
                                                                 <?php
                                                                 if (!isset($weight))
                                                                 {
-                                                                    $weight = $program -> getLastWeight($_GET['groupType']);
+                                                                    $weight = $program -> getLastWeight($_GET['groupType'],$userGet['id']);
                                                                     
                                                                 } ?>
                                                                 <td>

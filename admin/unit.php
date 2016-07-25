@@ -147,6 +147,9 @@ if($_GET['type']=="del")
                                     <option value="शिक्षा" <? if($category=="शिक्षा"){ echo 'selected="selected"';}?>>शिक्षा</option>
                                     <option value="फलफुल बाली बर्ष" <? if($category=="फलफुल बाली बर्ष"){ echo 'selected="selected"';}?>>फलफुल बाली बर्ष</option>
                                     <option value="कृषक आइडी" <? if($category=="कृषक आइडी"){ echo 'selected="selected"';}?>>कृषक आइडी</option>
+                                    <option value="आधारभूत सेवा" <? if($category=="आधारभूत सेवा"){ echo 'selected="selected"';}?>>आधारभूत सेवा</option>
+                                    <option value="समूहको प्रकार" <? if($category=="समूहको प्रकार"){ echo 'selected="selected"';}?>>समूहको प्रकार</option>
+                                    <option value="नवीकरण" <? if($category=="नवीकरण"){ echo 'selected="selected"';}?>>नवीकरण</option>
                                 </select></td>
                             </tr>
                             <tr><td></td></tr>

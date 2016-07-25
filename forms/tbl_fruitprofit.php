@@ -213,7 +213,7 @@
 </tr>
 
 <tr>
-    <td><strong class="fronttitle">निर्माण खर्च (रु)</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">निर्माण खर्च (हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:14%">
     		<p><input type="text" name="constructionExpense" class="number" value="<?=$constructionExpense;?>" required /></p>

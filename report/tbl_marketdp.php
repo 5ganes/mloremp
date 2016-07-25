@@ -19,6 +19,7 @@
                 </tr>
             </table>
         </th>
+        <th class="priceheading" style="width:150px">कमान्ड गा वि स/न पा संख्या</th>
         <th class="priceheading" style="width:150px">बजार लाग्ने दिन<br>(हप्तामा)</th>
         <th class="priceheading" style="width:190px">बजार निमार्णमा<br>सरकारी लगानी(रु)</th>
         <th class="priceheading" style="width:135px">बार्षिक कृषि उपजको कारोवार(टन)</th>
@@ -40,6 +41,7 @@
                     </tr>
                 </table>
             </td>
+            <td border="0" class="pricedata"><? echo $rec['command_vdc_mun_number'];?></td>
             <td border="0" class="pricedata"><? echo $rec['marketDay'];?></td>
             <td border="0" class="pricedata"><?=$rec['governmentInvestment'];?></td>
             <td border="0" class="pricedata"><? echo $rec['agricultureProductTradeQuantityTon'];?></td>

@@ -97,6 +97,14 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">कमान्ड गा वि स/न पा संख्या</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <p><input type="number" name="command_vdc_mun_number" class="number" value="<?=$command_vdc_mun_number;?>" required /></p>
+        <p class="error" id="command_vdc_mun_number"></p>
+    </td>
+</tr>
+
+<tr>
     <td><strong class="fronttitle">बजार लाग्ने दिन(हप्तामा)</strong> :</td>
     <td>
     	<select name="marketDay" class="text" style="width:83px">
@@ -114,7 +122,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">बजार निमार्णमा सरकारी लगानी (रु)</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">बजार निमार्णमा सरकारी लगानी (हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:14%">
     		<p><input type="text" name="governmentInvestment" class="number" value="<?=$governmentInvestment;?>" required /></p>
@@ -156,7 +164,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">बार्षिक कृषि उपजको कारोवार रकम(रु)</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">बार्षिक कृषि उपजको कारोवार रकम(हजारमा)</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:14%">
     		<p><input type="text" name="agricultureProductTradeAmount" class="number" value="<?=$agricultureProductTradeAmount;?>" required /></p>
