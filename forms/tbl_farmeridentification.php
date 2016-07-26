@@ -51,6 +51,27 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">गर्ने मुख्य वाली</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="margin-left: 0">
+            <select name="mainCrop" class="text" required>
+                <option value="">None</option>
+                <?
+                $crop1=$crop->getCrops();
+                while($crop1Get=$conn->fetchArray($crop1))
+                {?>
+                    <option value="<?=$crop1Get['name'];?>" <? if($crop1Get['name']==$mainCrop){ echo 'selected="selected"';}?> style="padding:0 2px">
+                        <?=$crop1Get['name'];?>
+                    </option>  
+                <? }
+                ?>
+            </select>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">जात/जाती</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft inputright" style="width:26%; margin-left: 0">

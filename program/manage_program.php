@@ -80,11 +80,11 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_farmeridentification")
 		{
 			$newId = $program->saveFarmerIdentification($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,
-			$farmerAge,$farmerCaste,$farmerIdType,$publish,$weight);
+			$farmerAge,$mainCrop,$farmerCaste,$farmerIdType,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_fisheryinformation")
 		{
-			$newId = $program->saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,
+			$newId = $program->saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,
 			$lakeNumber,$areaUnit,$lakeArea,$productionUnit,$production,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_price")
@@ -213,11 +213,11 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_farmeridentification")
 			{
 				$newId = $program->saveFarmerIdentification("",$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,
-				$farmerAge,$farmerCaste,$farmerIdType,$publish,$weight);
+				$farmerAge,$mainCrop,$farmerCaste,$farmerIdType,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_fisheryinformation")
 			{
-				$newId = $program->saveFisheryInformation("",$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,
+				$newId = $program->saveFisheryInformation("",$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,
 				$lakeNumber,$areaUnit,$lakeArea,$productionUnit,$production,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_price")

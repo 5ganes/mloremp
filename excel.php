@@ -228,12 +228,12 @@ else if($typeId==FARMER){
 	{
 		$fit=$program->getUnitById($row['farmerIdType']);
 		$fYear[] =$row["fiscalYear"];$fName[]=$row['farmerName'];$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];
-		$fAge[]=$row['farmerAge'];$fCaste[]=$row['farmerCaste'];$fIType[]=$fit['name'];
+		$fAge[]=$row['farmerAge'];$mCrop[]=$row['mainCrop'];$fCaste[]=$row['farmerCaste'];$fIType[]=$fit['name'];
 	};
-	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Farmer Age','Farmer Caste','Farmer ID Type'));
+	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Farmer Age','Main Crop','Farmer Caste','Farmer ID Type'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$fAge[$c],$fCaste[$c],$fIType[$c]));	
+		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$fAge[$c],$mCrop[$c],$fCaste[$c],$fIType[$c]));	
 	}	
 }
 else if($typeId==FISHERY){
@@ -242,13 +242,13 @@ else if($typeId==FISHERY){
 	while ($row = mysql_fetch_array($record))
 	{
 		$fit=$program->getUnitById($row['farmerIdType']);
-		$fYear[] =$row["fiscalYear"];$fName[]=$row['farmerName'];$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];
+		$fYear[] =$row["fiscalYear"];$fName[]=$row['farmerName'];$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];$lType[]=$row['lakeType'];
 		$lNumber[]=$row['lakeNumber'];$lArea[]=$row['lakeAreaHector'];$prod[]=$row['productionTon'];
 	};
-	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Lake Number','Lake Area(H)','Production(Ton)'));
+	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Lake Type','Lake Number','Lake Area(H)','Production(Ton)'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$lNumber[$c],$lArea[$c],$prod[$c]));	
+		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$lType[$c],$lNumber[$c],$lArea[$c],$prod[$c]));	
 	}	
 }
 /*

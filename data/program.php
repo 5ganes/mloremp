@@ -1140,7 +1140,7 @@ class Program
     }
     
     //for farmer identification
-    function saveFarmerIdentification($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$farmerAge,$farmerCaste,$farmerIdType,
+    function saveFarmerIdentification($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$farmerAge,$mainCrop,$farmerCaste,$farmerIdType,
     $publish,$weight)
     {
         global $conn;
@@ -1153,7 +1153,8 @@ class Program
         $addressVdcMunicipality = cleanQuery($addressVdcMunicipality);
         $addressWardNumber = cleanQuery($addressWardNumber);
         $farmerAge = cleanQuery($farmerAge);
-                $farmerCaste = cleanQuery($farmerCaste);
+        $mainCrop = cleanQuery($mainCrop);
+        $farmerCaste = cleanQuery($farmerCaste);
         $farmerIdType = cleanQuery($farmerIdType);
         
         $publish = cleanQuery($publish);
@@ -1169,7 +1170,8 @@ class Program
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
                             farmerAge = '$farmerAge',
-                                                        farmerCaste = '$farmerCaste',
+                            mainCrop = '$mainCrop',
+                            farmerCaste = '$farmerCaste',
                             farmerIdType = '$farmerIdType',
                             publish = '$publish',
                             weight = '$weight'
@@ -1185,7 +1187,8 @@ class Program
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
                             farmerAge = '$farmerAge',
-                                                        farmerCaste = '$farmerCaste',
+                            mainCrop = '$mainCrop',
+                            farmerCaste = '$farmerCaste',
                             farmerIdType = '$farmerIdType',
                             publish = '$publish',
                             weight = '$weight',
@@ -1199,7 +1202,7 @@ class Program
     }
     
     //for fishery information
-    function saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeNumber,$areaUnit,
+    function saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,$lakeNumber,$areaUnit,
     $lakeArea,$productionUnit,$production,$publish,$weight)
     {
         global $conn;
@@ -1211,6 +1214,7 @@ class Program
         $farmerName = cleanQuery($farmerName);
         $addressVdcMunicipality = cleanQuery($addressVdcMunicipality);
         $addressWardNumber = cleanQuery($addressWardNumber);
+        $lakeType = cleanQuery($lakeType);
         $lakeNumber = cleanQuery($lakeNumber);
         $areaUnit = cleanQuery($areaUnit);
         $lakeArea = cleanQuery($lakeArea);
@@ -1239,6 +1243,7 @@ class Program
                             farmerName = '$farmerName',
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
+                            lakeType = '$lakeType',
                             lakeNumber = '$lakeNumber',
                             areaUnit = '$areaUnit',
                             lakeArea = '$lakeArea',
@@ -1259,6 +1264,7 @@ class Program
                             farmerName = '$farmerName',
                             addressVdcMunicipality = '$addressVdcMunicipality',
                             addressWardNumber = '$addressWardNumber',
+                            lakeType = '$lakeType',
                             lakeNumber = '$lakeNumber',
                             areaUnit = '$areaUnit',
                             lakeArea = '$lakeArea',

@@ -16,6 +16,7 @@
                 </tr>
             </table>
         </th>
+        <th class="priceheading" style="width:56px">पोखरीको प्रकार</th>
         <th class="priceheading" style="width:56px">पोखरी संख्या</th>
         <th class="priceheading" style="width:140px">जलासयको क्षेत्रफल ( हे )</th>
         <th class="priceheading" style="width:70px">गत बर्षको सरदर उत्पादन(Ton)</th>
@@ -34,6 +35,11 @@
                         <td class="pricedata"><?=$rec['addressVdcMunicipality'];?></td>
                         <td class="pricedata"><?=$rec['addressWardNumber'];?></td>
                     </tr>
+                </table>
+            </td>
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata"><? $unt=$program->getUnitById($rec['lakeType']); echo $unt['name'];?></td></tr>
                 </table>
             </td>
             <td border="0">

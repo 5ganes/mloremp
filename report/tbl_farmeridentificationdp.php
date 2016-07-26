@@ -17,6 +17,7 @@
             </table>
         </th>
         <th class="priceheading" style="width:56px">कृषकको उमेर</th>
+        <th class="priceheading" style="width:56px">गर्ने मुख्य वाली</th>
         <th class="priceheading" style="width:80px">जात/जाती</th>
         <th class="priceheading" style="width:140px">प्राप्त गरेको आइडीको किसिम</th>
     </tr>
@@ -39,6 +40,11 @@
             <td border="0">
                 <table>
                     <tr><td class="pricedata"><?=$rec['farmerAge'];?></td></tr>
+                </table>
+            </td>
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata"><?=$rec['mainCrop'];?></td></tr>
                 </table>
             </td>
             <td border="0">

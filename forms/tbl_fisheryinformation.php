@@ -40,6 +40,26 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">पोखरीको प्रकार</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="width:14%; margin-left:0">
+            <select name="lakeType" class="text" style="width:150px; height:20px;" required>
+            <?
+            $unit=$groups->getUnitByCategory("पोखरीको प्रकार");
+            while($unitGet=$conn->fetchArray($unit))
+            {?>
+                <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$lakeType){ echo 'selected="selected"';}?>>
+                    <?=$unitGet['name'];?>
+                </option>  
+            <? }
+            ?>
+            </select>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">पोखरी संख्या</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft inputright" style="width:14%;">
