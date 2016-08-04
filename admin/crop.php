@@ -90,6 +90,9 @@ if($_GET['type']=="del")
 
 <script type="text/javascript" src="../js/cms.js"></script>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
 </head>
 <body>
 <table width="<?php echo ADMIN_PAGE_WIDTH; ?>" border="0" align="center" cellpadding="0"
@@ -166,17 +169,10 @@ if($_GET['type']=="del")
                             <tr>
                               <td></td>
                               <td colspan="2" style="width:400px">
-								<?php
-									include ("../fckeditor/fckeditor.php");
-									$sBasePath="../fckeditor/";
-									
-									$oFCKeditor = new FCKeditor('shortcontents');
-									$oFCKeditor->BasePath	= $sBasePath ;
-									$oFCKeditor->Value		= $shortcontents;
-									$oFCKeditor->Height		= "200";
-									$oFCKeditor->ToolbarSet	= "Rupens";	
-									$oFCKeditor->Create();
-								?>
+								                <textarea id="shortcontents" name="shortcontents"><?=$shortcontents;?></textarea>
+                                <script type="text/javascript">
+                                    CKEDITOR.replace( 'shortcontents');
+                                </script>
                               </td>
                             </tr>
                             <tr><td></td></tr>
@@ -191,14 +187,10 @@ if($_GET['type']=="del")
                             <tr>
                               <td></td>
                               <td colspan="2">
-								<?php
-									$oFCKeditor = new FCKeditor('contents');
-									$oFCKeditor->BasePath	= $sBasePath ;
-									$oFCKeditor->Value		= $contents;
-									$oFCKeditor->Height		= "250";
-									$oFCKeditor->ToolbarSet	= "Rupens";	
-									$oFCKeditor->Create();
-								?>
+								                <textarea id="contents" name="contents"><?=$contents;?></textarea>
+                                <script type="text/javascript">
+                                    CKEDITOR.replace( 'contents');
+                                </script>
                               </td>
                             </tr>
                             <tr><td></td></tr>

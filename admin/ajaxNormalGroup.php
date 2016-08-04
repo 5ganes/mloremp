@@ -1,7 +1,3 @@
-<?php
-	include ("../fckeditor/fckeditor.php");
-	$sBasePath="../fckeditor/";
-?>
 <div>
 	<div style="float:left; width:49%;">
     	<p>Summary(English)</p>
@@ -15,26 +11,20 @@
 </div>
 	
 <div>
-	<div style="">
-		<?
-        echo '<p>Details(English)</p>';
-        $oFCKeditor = new FCKeditor('contents');
-        $oFCKeditor->BasePath	= $sBasePath ;
-        $oFCKeditor->Value		= $groupRow['contents'];
-        $oFCKeditor->Height		= "200";
-        $oFCKeditor->ToolbarSet	= "Rupens";	
-        $oFCKeditor->Create();
-		?>	
-	</div>
     <div style="">
-		<? echo '<p>Details(Nepali)</p>';
-        $oFCKeditor = new FCKeditor('contentsnp');
-        $oFCKeditor->BasePath	= $sBasePath ;
-        $oFCKeditor->Value		= $groupRow['contentsnp'];
-        $oFCKeditor->Height		= "200";
-        $oFCKeditor->ToolbarSet	= "Rupens";	
-        $oFCKeditor->Create();
-    	?>
-	</div>
+        <p><b>Details(English)</b></p>
+        <textarea id="contents" name="contents"><?=$groupRow['contents'];?></textarea>
+    </div>
+    <div style="">
+        <p><b>Details(Nepali)</b></p>
+        <textarea id="contentsnp" name="contentsnp"><?=$groupRow['contentsnp'];?></textarea>
+    </div>
     <div style="clear:both"></div>
 </div>
+<script type="text/javascript">
+
+    //CKEDITOR.basepath = "/ckeditor/";
+    CKEDITOR.replace( 'contents');
+    CKEDITOR.replace( 'contentsnp' );
+    //var editor_data = CKEDITOR.instances.shortcontents.getData();
+</script>

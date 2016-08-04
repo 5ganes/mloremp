@@ -56,33 +56,24 @@ include("init.php");
    		<div style="clear:both"></div>
   	</div>
   
-  
-  
   <div>
-	<div style="">
-		<?
-        echo '<p>Details(English)</p>';
-		require_once ("../fckeditor/fckeditor.php");
-		$sBasePath="../fckeditor/";
-        $oFCKeditor = new FCKeditor('listDescription');
-        $oFCKeditor->BasePath	= $sBasePath ;
-        $oFCKeditor->Value		= $listRow['contents'];
-        $oFCKeditor->Height		= "200";
-        $oFCKeditor->ToolbarSet	= "Rupens";	
-        $oFCKeditor->Create();
-		?>	
-	</div>
-    <div style="">
-		<? echo '<p>Details(Nepali)</p>';
-        $oFCKeditor = new FCKeditor('listDescriptionnp');
-        $oFCKeditor->BasePath	= $sBasePath ;
-        $oFCKeditor->Value		= $listRow['contentsnp'];
-        $oFCKeditor->Height		= "200";
-        $oFCKeditor->ToolbarSet	= "Rupens";	
-        $oFCKeditor->Create();
-    	?>
-	</div>
-    <div style="clear:both"></div>
+
+  <div style="">
+    <?php echo '<p>Details(English)</p>';?>
+    <textarea id="listDescription" name="listDescription"><?=$listRow['contents'];?></textarea>
+    <script type="text/javascript">
+      CKEDITOR.replace( 'listDescription' );
+    </script>
+  </div>
+
+  <div style="">
+    <?php echo '<p>Details(Nepali)</p>';?>
+    <textarea id="listDescriptionnp" name="listDescriptionnp"><?=$listRow['contentsnp'];?></textarea>
+    <script type="text/javascript">
+      CKEDITOR.replace( 'listDescriptionnp' );
+    </script>
+  </div>
+  <div style="clear:both"></div>
   </div>
   
   

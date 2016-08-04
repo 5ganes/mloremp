@@ -103,6 +103,9 @@ if($_GET['type']=="del")
 </style>
 <script type="text/javascript" src="../js/cms.js"></script>
 <script type="text/javascript" src="../js/jquery.min.js"></script>
+
+<script type="text/javascript" src="ckeditor/ckeditor.js"></script>
+
 </head>
 <body>
 <table width="<?php echo ADMIN_PAGE_WIDTH; ?>" border="0" align="center" cellpadding="0"
@@ -286,16 +289,20 @@ if($_GET['type']=="del")
                             <tr>
                               <td></td>
                               <td colspan="2">
-								<?php
-									include ("../fckeditor/fckeditor.php");
-									$sBasePath="../fckeditor/";		
-									$oFCKeditor = new FCKeditor('org_info');
-									$oFCKeditor->BasePath	= $sBasePath ;
-									$oFCKeditor->Value		= $org_info;
-									$oFCKeditor->Height		= "250";
-									$oFCKeditor->ToolbarSet	= "Rupens";	
-									$oFCKeditor->Create();
-								?>
+                                <textarea id="org_info" name="org_info"><?=$org_info;?></textarea>
+                                <script type="text/javascript">
+                                    CKEDITOR.replace( 'org_info');
+                                </script>
+                								<?php
+                									// include ("../fckeditor/fckeditor.php");
+                									// $sBasePath="../fckeditor/";		
+                									// $oFCKeditor = new FCKeditor('org_info');
+                									// $oFCKeditor->BasePath	= $sBasePath ;
+                									// $oFCKeditor->Value		= $org_info;
+                									// $oFCKeditor->Height		= "250";
+                									// $oFCKeditor->ToolbarSet	= "Rupens";	
+                									// $oFCKeditor->Create();
+                								?>
 
                               </td>
                             </tr>
