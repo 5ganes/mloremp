@@ -66,6 +66,8 @@ define("TRAININGREPO", 15);
 define("SUBSIDI", 16);
 define("TRAINING", 15);
 
+define("INFO_OFFICER", 400);
+
 ///////////////GENERAL CLIENT SIDE CONSTANTS///////////////////
 
 

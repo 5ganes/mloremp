@@ -52,18 +52,23 @@
   <div class="main">
     <!-- B.1 MAIN NAVIGATION -->
     <div class="main-navigation">
-      <!-- Navigation Level 3 -->
-      <h1 class="first">Information Categories</h1>
-      <!-- Navigation with grid style -->
-      <dl class="nav3-grid">
-      	<? $info=$groups->getByParentIdWithLimit(241,20);
-		while($infoGet=$conn->fetchArray($info))
-		{?>
-        	<dt> <a href="en/<?=$infoGet['urlname'];?>"><?=$infoGet['name'];?></a></dt>
-      	<? }?>
-      </dl>
+      <div class="subcontent-unit-border">
+        
+        <? $msg=$groups->getById(274); $msgGet=$conn->fetchArray($msg); ?>
+        <h1 style="margin:0"><?=$msgGet['name'];?></h1>
+        <img src="<?=CMS_GROUPS_DIR.$msgGet['image'];?>" width="150px" style="margin:7px 7px 7px 14px" />
+        <p style="text-align:justify"><?=$msgGet['shortcontents'];?>...<br />
+        <a style="float:right" href="en/<?=$msgGet['urlname'];?>">see more...</a></p>
+
+        <? $msg=$groups->getById(INFO_OFFICER); $msgGet=$conn->fetchArray($msg); ?>
+        <h1 style="margin:0"><?=$msgGet['name'];?></h1>
+        <img src="<?=CMS_GROUPS_DIR.$msgGet['image'];?>" width="150px" style="margin:7px 7px 7px 14px" />
+        <p style="text-align:justify"><?=$msgGet['shortcontents'];?>...<br />
+        <a style="float:right" href="en/<?=$msgGet['urlname'];?>">see more...</a></p>
+        
+      </div>
       <!-- Template infos -->
-      <h1>Important Links</h1>
+      <h1 style="margin:0">Important Links</h1>
       <ul style="margin:0 5px 0 6px">
       	<? $links=$groups->getByParentIdWithLimit(275, 10);
 		while($linksGet=$conn->fetchArray($links))

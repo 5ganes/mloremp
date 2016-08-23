@@ -5,7 +5,7 @@
       <h1 class="pagetitle"><?=$welget['namenp'];?></h1>
       <!-- Content unit - One column -->
       <div class="column1-unit">
-        <p style="text-align:justify">
+        <p style="text-align:justify; line-height:2.2em">
       		<? echo $welget['shortcontentsnp'];?>
         </p>
 		<a href="<?=$welget['urlname'];?>">पुरा हेर्नुहोस...</a>
@@ -31,11 +31,15 @@
       <!-- Subcontent unit -->
       <div class="subcontent-unit-border">
         
-        <? $msg=$groups->getById(274); $msgGet=$conn->fetchArray($msg); ?>
-        <h1><?=$msgGet['namenp'];?></h1>
-        <img src="<?=CMS_GROUPS_DIR.$msgGet['image'];?>" width="150px" style="margin:0px 7px 7px 14px" />
-        <p style="text-align:justify"><?=$msgGet['shortcontentsnp'];?>...<br />
-        <a style="float:right" href="<?=$msgGet['urlname'];?>">पुरा हेर्नुहोस...</a></p>
+        <h1 class="first">जानकारी क्यटेगोरिहरु</h1>
+      <!-- Navigation with grid style -->
+      <dl class="nav3-grid">
+        <? $info=$groups->getByParentIdWithLimit(241,20);
+    while($infoGet=$conn->fetchArray($info))
+    {?>
+          <dt> <a href="<?=$infoGet['urlname'];?>"><?=$infoGet['namenp'];?></a></dt>
+        <? }?>
+      </dl>
         
       </div>
       

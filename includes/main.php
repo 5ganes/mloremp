@@ -5,7 +5,7 @@
       <h1 class="pagetitle"><?=$welget['name'];?></h1>
       <!-- Content unit - One column -->
       <div class="column1-unit">
-        <p style="text-align:justify">
+        <p style="text-align:justify;line-height:2.2em">
       		<? echo $welget['shortcontents'];?>
         </p>
 		<a href="en/<?=$welget['urlname'];?>">पुरा हेर्नुहोस...</a>
@@ -29,15 +29,17 @@
 <!-- B.3 SUBCONTENT -->
 <div class="main-subcontent">
       <!-- Subcontent unit -->
-      <div class="subcontent-unit-border">
-        
-        <? $msg=$groups->getById(274); $msgGet=$conn->fetchArray($msg); ?>
-        <h1><?=$msgGet['name'];?></h1>
-        <img src="<?=CMS_GROUPS_DIR.$msgGet['image'];?>" width="150px" style="margin:0px 7px 7px 14px" />
-        <p style="text-align:justify"><?=$msgGet['shortcontents'];?>...<br />
-        <a style="float:right" href="en/<?=$msgGet['urlname'];?>">see more...</a></p>
-        
-      </div>
+
+      <!-- Navigation Level 3 -->
+      <h1 class="first">Information Categories</h1>
+      <!-- Navigation with grid style -->
+      <dl style="margin-bottom:20px" class="nav3-grid">
+        <? $info=$groups->getByParentIdWithLimit(241,20);
+    while($infoGet=$conn->fetchArray($info))
+    {?>
+          <dt> <a href="en/<?=$infoGet['urlname'];?>"><?=$infoGet['name'];?></a></dt>
+        <? }?>
+      </dl>
       
       <div class="subcontent-unit-border">
         <div class="payment">
