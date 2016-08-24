@@ -37,6 +37,9 @@ CKEDITOR.editorConfig = function( config ) {
 	// Simplify the dialog windows.
 	config.removeDialogTabs = 'image:advanced;link:advanced';
 
+	//manual code
+	config.toolbar_basic = [[ 'Bold','Italic','Underline','Find','Replace','Source']];
+
 	
 	//config.extraPlugins = 'locationmap';
 	//config.extraPlugins = 'table';

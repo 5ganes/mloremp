@@ -24,6 +24,8 @@
 <script type="text/javascript">
 
     //CKEDITOR.basepath = "/ckeditor/";
+    CKEDITOR.replace('shortcontents', { toolbar: 'basic' });
+    CKEDITOR.replace('shortcontentsnp', { toolbar: 'basic' });
     CKEDITOR.replace( 'contents');
     CKEDITOR.replace( 'contentsnp' );
     //var editor_data = CKEDITOR.instances.shortcontents.getData();
