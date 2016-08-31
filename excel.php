@@ -98,12 +98,13 @@ else if($typeId==CROPCUTTING){
 		$lt=$program->getUnitById($row['landType']);$st=$program->getUnitById($row['seedType']);$pu=$program->getUnitById($row['productionUnit']);
 		$fYear[] =$row["fiscalYear"];$cName[]=$row['cropName'];$fName[]=$row['farmerName'];$sKendra[]=$row['sewaKendra'];$vdc[]=$row['addressVdcMunicipality'];
 		$ward[]=$row['addressWardNumber'];$lType[]=$lt['name'];$sType[]=$st['name'];$pUnit[]=$pu['name'];$cCProduction[]=$row['cropCuttingProduction'];$mPercent[]=$row['moisturePercent'];
+		$productivity[]=$row['productivity'];
 	};
 	fputcsv($output, array('Fiscal Year','Crop Name','Farmer Name','Sewa Kendra','VDC/Municipality','Ward No','Land Type','Seed Type','Production Unit',
-	'Cropcutting Production(T)','Moisture(%)'));
+	'Cropcutting Production(T)','Moisture(%)','Productivity'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$cName[$c],$fName[$c],$sKendra[$c],$vdc[$c],$ward[$c],$lType[$c],$sType[$c],$pUnit[$c],$cCProduction[$c],$mPercent[$c]));	
+		fputcsv($output, array($fYear[$c],$cName[$c],$fName[$c],$sKendra[$c],$vdc[$c],$ward[$c],$lType[$c],$sType[$c],$pUnit[$c],$cCProduction[$c],$mPercent[$c],$productivity[$c]));	
 	}	
 }
 else if($typeId==MONTHLYREPORTING)

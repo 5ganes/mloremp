@@ -22,6 +22,7 @@
         <th class="priceheading" style="width:105px">वीउको किसिम</th>
         <th class="priceheading" style="width:220px">वाली कटानी <br />उत्पादन(kg)</th>
         <th class="priceheading" style="width:100px">चिस्यान(%)</th>
+        <th class="priceheading" style="width:100px">उत्पादकत्व</th>
         <th class="priceheading" style="width:330px">कैफियत</th>
     </tr>
     <? while($rec=$conn->fetchArray($record))
@@ -73,6 +74,11 @@
             <td border="0">
                 <table>
                     <tr><td class=""><?=$rec['moisturePercent'];?></td></tr>
+                </table>
+            </td>
+            <td border="0">
+                <table>
+                    <tr><td class=""><?=$rec['productivity'];?></td></tr>
                 </table>
             </td>
             <td border="0">

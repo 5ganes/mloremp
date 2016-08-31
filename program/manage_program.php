@@ -38,7 +38,7 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_cropcutting")
 		{
 			$program->saveCropCutting($id,$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$farmerName,$sewaKendra,
-				$addressVdcMunicipality,$addressWardNumber,$landType,$seedType,$productionUnit,$cropCuttingProduction,$moisturePercent,$remarks,$publish,$weight);
+				$addressVdcMunicipality,$addressWardNumber,$landType,$seedType,$productionUnit,$cropCuttingProduction,$moisturePercent,$productivity,$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_monthlyreporting")
 		{
@@ -171,7 +171,7 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_cropcutting")
 			{
 				$newId = $program->saveCropCutting("",$fiscalYear,$userId,$manualDate,$cropName,$cropCode,$farmerName,$sewaKendra,
-				$addressVdcMunicipality,$addressWardNumber,$landType,$seedType,$productionUnit,$cropCuttingProduction,$moisturePercent,$remarks,$publish,$weight);
+				$addressVdcMunicipality,$addressWardNumber,$landType,$seedType,$productionUnit,$cropCuttingProduction,$moisturePercent,$productivity,$remarks,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_monthlyreporting")
 			{

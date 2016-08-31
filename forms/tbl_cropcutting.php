@@ -150,6 +150,13 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">उत्पादकत्व :</strong></td>
+    <td>
+        <input type="text" name="productivity" class="number" value="<?=$productivity;?>" required />
+    </td>
+</tr>
+
+<tr>
     <td><strong class="fronttitle">कैफियत :</strong></td>
     <td>
     	<textarea name="remarks" rows="1" style="padding:3px 4px" cols="45"><?=$remarks;?></textarea>
