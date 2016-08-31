@@ -721,7 +721,7 @@ class Program
     
     //for fertilizer
     function saveFertilizer($id,$fiscalYear,$userId,$manualDate,$sellingOffice,$sellingOfficeType,$addressVdcMunicipality,$addressWardNumber,$proprietorName,$contactNumber,
-    $registrationNumber,$renewStatus,$registeredYear,$sellingObject,$remarks,$publish,$weight)
+    $registrationNumber,$renewStatus,$registeredYear,$sellingObject,$sellAmountUnit,$sellAmount,$sellPriceUnit,$sellPrice,$remarks,$publish,$weight)
     {
         global $conn;
         
@@ -740,6 +740,11 @@ class Program
         $registeredYear = cleanQuery($registeredYear);
         $sellingObject = implode(",", $sellingObject);
         $remarks = cleanQuery($remarks);
+
+        $sellAmountUnit = cleanQuery($sellAmountUnit);
+        $sellAmount = cleanQuery($sellAmount);
+        $sellPriceUnit = cleanQuery($sellPriceUnit);
+        $sellPrice = cleanQuery($sellPrice);
         
         $publish = cleanQuery($publish);
         $weight = cleanQuery($weight);
@@ -760,6 +765,10 @@ class Program
                             renewStatus = '$renewStatus',
                             registeredYear = '$registeredYear',
                             sellingObject = '$sellingObject',
+                            sellAmountUnit = '$sellAmountUnit',
+                            sellAmount = '$sellAmount',
+                            sellPriceUnit = '$sellPriceUnit',
+                            sellPrice = '$sellPrice',
                             remarks = '$remarks',
                             publish = '$publish',
                             weight = '$weight'
@@ -781,6 +790,10 @@ class Program
                             renewStatus = '$renewStatus',
                             registeredYear = '$registeredYear',
                             sellingObject = '$sellingObject',
+                            sellAmountUnit = '$sellAmountUnit',
+                            sellAmount = '$sellAmount',
+                            sellPriceUnit = '$sellPriceUnit',
+                            sellPrice = '$sellPrice',
                             remarks = '$remarks',
                             publish = '$publish',
                             weight = '$weight',

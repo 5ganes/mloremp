@@ -52,7 +52,7 @@ if (isset($_POST['save']))
 		{
 			$sellingObject=$_POST['sobj'];
 			$newId = $program->saveFertilizer($id,$fiscalYear,$userId,$manualDate,$sellingOffice,$sellingOfficeType,$addressVdcMunicipality,$addressWardNumber,
-			$proprietorName,$contactNumber,$registrationNumber,$renewStatus,$registeredYear,$sellingObject,$remarks,$publish,$weight);
+			$proprietorName,$contactNumber,$registrationNumber,$renewStatus,$registeredYear,$sellingObject,$sellAmountUnit,$sellAmount,$sellPriceUnit,$sellPrice,$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_agrigroups")
 		{

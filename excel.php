@@ -138,6 +138,9 @@ else if($typeId==FERTILIZER){
 	//Store it into the array
 	while ($row = mysql_fetch_array($record))
 	{
+		$unit=$program->getUnitById($row['sellAmountUnit']); $sellAmount[]=$row['sellAmount']." ".$unit['name'];
+		$unit=$program->getUnitById($row['sellPriceUnit']); $sellPrice[]=$row['sellPrice']." प्रति ".$unit['name'];
+		$sot=$program->getUnitById($row['sellingOfficeType']);
 		$sot=$program->getUnitById($row['sellingOfficeType']);
 		$renewType=$program->getUnitById($row['renewStatus']);
 		$fYear[] =$row["fiscalYear"];$sOffice[]=$row['sellingOffice'];$sOType[]=$sot['name'];$vdc[]=$row['addressVdcMunicipality'];
@@ -145,10 +148,10 @@ else if($typeId==FERTILIZER){
 		$rYear[]=$row['registeredYear'];$sObject[]=$row['sellingObject'];$rem[]=$row['remarks'];
 	};
 	fputcsv($output, array('Fiscal Year','Selling Office','Office Type','VDC/Municipality','Ward No','Proprietor Name','Contact Number','Registration No','Renew Status',
-	'Registered Year','Selling Object','Remarks'));
+	'Registered Year','Selling Object','sellAmount','sellPrice','Remarks'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$sOffice[$c],$sOType[$c],$vdc[$c],$ward[$c],$pName[$c],$cNumber[$c],$rNumber[$c],$rType[$c],$rYear[$c],$sObject[$c],$rem[$c]));	
+		fputcsv($output, array($fYear[$c],$sOffice[$c],$sOType[$c],$vdc[$c],$ward[$c],$pName[$c],$cNumber[$c],$rNumber[$c],$rType[$c],$rYear[$c],$sObject[$c],$sellAmount[$c],$sellPrice[$c],$rem[$c]));	
 	}	
 }
 else if($typeId==GROUPS){

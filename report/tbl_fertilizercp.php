@@ -24,6 +24,9 @@
         <th class="priceheading" style="width:105px">नवीकरण</th>
         <th class="priceheading" style="width:155px">दर्ता भएको वर्ष</th>
         <th class="priceheading" style="width:330px">विक्रि हुने बस्तु</th>
+        <th class="priceheading" style="width:330px">बिक्री परिमाण</th>
+        <th class="priceheading" style="width:330px">बिक्री मुल्य</th>
+
         <th class="priceheading" style="width:330px">कैफियत</th>
     </tr>
     <? while($rec=$conn->fetchArray($record))
@@ -68,6 +71,15 @@
             <td border="0" class="pricedata">
                 <?=$rec['sellingObject'];?>
             </td>
+
+            <td border="0" class="pricedata">
+                <? $unit=$program->getUnitById($rec['sellAmountUnit']); echo $rec['sellAmount']." ".$unit['name'];?>
+            </td>
+
+            <td border="0" class="pricedata">
+                <? $unit=$program->getUnitById($rec['sellPriceUnit']); echo $rec['sellPrice']." प्रति ".$unit['name'];?>
+            </td>
+
             <td border="0" class="pricedata">
                 <?=$rec['remarks'];?>
             </td>
