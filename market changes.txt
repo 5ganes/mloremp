@@ -5,7 +5,7 @@
 //farmer identification ma garne hataune 
 //rice maize and wheat add garne price detail ma
 
-sewa kendra select garda sewa kendra ko name option aaunu paryo training program ma
+sewa kendra select garda sewa kendra ko name option aaunu paryo training program ma:   sewakendra_name,org_head, phone, address,email, org_info
 
 //anudan ko type add garne option Cash,technical,bastugat in SUBSIDY INFORMATION
 

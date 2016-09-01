@@ -25,6 +25,9 @@ $enewsletters			= new Enewsletters();
 $testimonials		= new Testimonials();
 $feedbacks			= new Feedbacks();
 
+require_once("../data/sewakendra.php");
+$sewakendra = new Sewakendra();
+
 define (ADMIN_GALLERY_LIMIT,20);
 
 

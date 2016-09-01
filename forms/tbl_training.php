@@ -67,7 +67,7 @@
 <tr>
     <td><strong class="fronttitle">तालिमको स्तर</strong> :</td>
     <td>
-    	<select name="trainingLevel" class="text">
+    	<select name="trainingLevel" class="text" onChange="sewakendra_get(this.value)">
             <?
 			$level=mysql_query("select id,program_level from programlevel where publish='Yes'");
 			while($levelGet=mysql_fetch_array($level))
@@ -77,6 +77,10 @@
               	</option>	
 			<? }
 			?>
+        </select>&nbsp;&nbsp;
+        सेवाकेन्द्र : 
+        <select name="sewakendra" class="text" id="sewakendra">
+            
         </select>
  	</td>
 </tr>
@@ -247,3 +251,31 @@
     </td>
 </tr>
 <tr><td></td></tr>
+
+<script type="text/javascript">
+    function sewakendra_get(value){
+        // alert(value);
+        var xml;
+        if(window.XMLHttpRequest)
+        {
+            xml=new XMLHttpRequest();
+        }
+        else
+        {
+            xml=new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        
+        xml.onreadystatechange=function()
+        {           
+            if(xml.readyState==4)
+            {
+                document.getElementById("sewakendra").innerHTML=xml.responseText;
+            }
+        }
+        
+        var url="forms/sewakendra_ajax.php?id="+value;
+        //alert(url);
+        xml.open("GET", url, true);
+        xml.send();
+    }
+</script>
