@@ -150,7 +150,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">उत्पादकत्व :</strong></td>
+    <td><strong class="fronttitle">उत्पादकत्व(kg/hectre) :</strong></td>
     <td>
         <input type="text" name="productivity" class="number" value="<?=$productivity;?>" required />
     </td>

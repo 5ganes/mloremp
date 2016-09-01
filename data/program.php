@@ -74,7 +74,7 @@ class Program
             return 10;
     }
     
-    function saveDistrictInformation($id,$fiscalYear,$userId,$manualDate,$areaUnit,$totalArea,$agricultureArea,$irrigatedArea,$unirrigatedArea,$barrenArea,
+    function saveDistrictInformation($id,$fiscalYear,$userId,$manualDate,$areaUnit,$totalArea,$agricultureArea,$irrigatedArea,$unirrigatedArea,$barrenArea,$irrigationTimeUnit,
     $grassArea,$forestArea,$otherArea,$totalFamilyNumber,$totalPopulation,$femaleNumber,$maleNumber,$farmerFamilyNumber,$farmerPopulation,$publish,$weight)
     {
         global $conn;
@@ -89,6 +89,7 @@ class Program
         $irrigatedArea = cleanQuery($irrigatedArea);
         $unirrigatedArea = cleanQuery($unirrigatedArea);
         $barrenArea = cleanQuery($barrenArea);
+        $irrigationTimeUnit = cleanQuery($irrigationTimeUnit);
         $grassArea = cleanQuery($grassArea);
         $forestArea = cleanQuery($forestArea);
         $otherArea = cleanQuery($otherArea);
@@ -147,6 +148,7 @@ class Program
                             unirrigatedAreaHector = '$unirrigatedAreaHector',
                             barrenArea = '$barrenArea',
                             barrenAreaHector = '$barrenAreaHector',
+                            irrigationTimeUnit = '$irrigationTimeUnit',
                             grassArea = '$grassArea',
                             grassAreaHector = '$grassAreaHector',
                             forestArea = '$forestArea',
@@ -180,6 +182,7 @@ class Program
                             unirrigatedAreaHector = '$unirrigatedAreaHector',
                             barrenArea = '$barrenArea',
                             barrenAreaHector = '$barrenAreaHector',
+                            irrigationTimeUnit = '$irrigationTimeUnit',
                             grassArea = '$grassArea',
                             grassAreaHector = '$grassAreaHector',
                             forestArea = '$forestArea',
@@ -808,7 +811,7 @@ class Program
     
     //for agrigroups
     function saveAgrigroups($id,$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,$femaleNumber,
-    $maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,$debtAmount,$groupStatus,
+    $maleNumber,$groupType,$subjectiveArea,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,$debtAmount,$groupStatus,
     $contactPerson,$publish,$weight)
     {
         global $conn;
@@ -824,6 +827,7 @@ class Program
         $femaleNumber = cleanQuery($femaleNumber);
         $maleNumber = cleanQuery($maleNumber);
         $groupType = cleanQuery($groupType);
+        $subjectiveArea = cleanQuery($subjectiveArea);
         $registeredDay = cleanQuery($registeredDay);
         $registeredMonth = cleanQuery($registeredMonth);
         $registeredYear = cleanQuery($registeredYear);
@@ -851,6 +855,7 @@ class Program
                             femaleNumber = '$femaleNumber',
                             maleNumber = '$maleNumber',
                             groupType = '$groupType',
+                            subjectiveArea = '$subjectiveArea',
                             registeredDay = '$registeredDay',
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
@@ -878,6 +883,7 @@ class Program
                             femaleNumber = '$femaleNumber',
                             maleNumber = '$maleNumber',
                             groupType = '$groupType',
+                            subjectiveArea = '$subjectiveArea',
                             registeredDay = '$registeredDay',
                             registeredMonth = '$registeredMonth',
                             registeredYear = '$registeredYear',
@@ -1083,7 +1089,7 @@ class Program
     }
     
     //for insuranceinfo
-    function saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,$remarks,$publish,$weight)
+    function saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$insuranceCompany,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$compensation,$totalFarmer,$remarks,$publish,$weight)
     {
         global $conn;
         
@@ -1092,6 +1098,7 @@ class Program
         $userId = cleanQuery($userId);
         $manualDate = cleanQuery($manualDate);
         $insuranceHolder = cleanQuery($insuranceHolder);
+        $insuranceCompany = cleanQuery($insuranceCompany);
         $cropName = cleanQuery($cropName);
         $cropCode = cleanQuery($cropCode);
         $cropAreaUnit = cleanQuery($cropAreaUnit);
@@ -1104,6 +1111,7 @@ class Program
         else{ $cropAreaHector=$cropArea; }
         
         $insuranceAmount = cleanQuery($insuranceAmount);
+        $compensation = cleanQuery($compensation);
         $totalFarmer = cleanQuery($totalFarmer);
         $remarks = cleanQuery($remarks);
         
@@ -1117,12 +1125,14 @@ class Program
                             userId = '$userId',
                             manualDate = '$manualDate',
                             insuranceHolder = '$insuranceHolder',
+                            insuranceCompany = '$insuranceCompany',
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             cropAreaUnit = '$cropAreaUnit',
                             cropArea = '$cropArea',
                             cropAreaHector = '$cropAreaHector',
                             insuranceAmount = '$insuranceAmount',
+                            compensation = '$compensation',
                             totalFarmer = '$totalFarmer',
                             remarks = '$remarks',
                             publish = '$publish',
@@ -1136,12 +1146,14 @@ class Program
                             userId = '$userId',
                             manualDate = '$manualDate',
                             insuranceHolder = '$insuranceHolder',
+                            insuranceCompany = '$insuranceCompany',
                             cropName = '$cropName',
                             cropCode = '$cropCode',
                             cropAreaUnit = '$cropAreaUnit',
                             cropArea = '$cropArea',
                             cropAreaHector = '$cropAreaHector',
                             insuranceAmount = '$insuranceAmount',
+                            compensation = '$compensation',
                             totalFarmer = '$totalFarmer',
                             remarks = '$remarks',
                             publish = '$publish',
@@ -1219,7 +1231,7 @@ class Program
     
     //for fishery information
     function saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,$lakeNumber,$areaUnit,
-    $lakeArea,$productionUnit,$production,$publish,$weight)
+    $lakeArea,$fishSpecies,$productionUnit,$production,$publish,$weight)
     {
         global $conn;
         
@@ -1241,9 +1253,11 @@ class Program
         else if($areaUnit==BARGAMITAR){ $lakeAreaHector=$lakeArea/10000; }
         else{ $lakeAreaHector=$lakeArea; }
         
-                $productionUnit = cleanQuery($productionUnit);
+        $fishSpecies = cleanQuery($fishSpecies);
+
+        $productionUnit = cleanQuery($productionUnit);
         $production= cleanQuery($production);
-                if($productionUnit==KUNTAL){ $productionTon=$production/10; }
+        if($productionUnit==KUNTAL){ $productionTon=$production/10; }
         else if($productionUnit==KG){ $productionTon=$production/1000; }
         else{ $productionTon=$production;}                
 
@@ -1263,6 +1277,7 @@ class Program
                             lakeNumber = '$lakeNumber',
                             areaUnit = '$areaUnit',
                             lakeArea = '$lakeArea',
+                            fishSpecies ='$fishSpecies',
                             lakeAreaHector = '$lakeAreaHector',
                                                         productionUnit = '$productionUnit',
                             production = '$production',
@@ -1284,6 +1299,7 @@ class Program
                             lakeNumber = '$lakeNumber',
                             areaUnit = '$areaUnit',
                             lakeArea = '$lakeArea',
+                            fishSpecies ='$fishSpecies',
                             lakeAreaHector = '$lakeAreaHector',
                                                         productionUnit = '$productionUnit',
                             production = '$production',
@@ -1509,7 +1525,7 @@ class Program
     }
     
     //for subsidi
-    function saveSubsidi($id,$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,$donationUnit,
+    function saveSubsidi($id,$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,$donationType,$donationUnit,
     $donationNumber,$name,$cast,$gender,$age,$addressVdcMunicipality,$addressWardNumber,$object,$amount,$remarks,$publish,$weight)
     {
         global $conn;
@@ -1523,6 +1539,7 @@ class Program
         $programYear = cleanQuery($programYear);
         $programName = cleanQuery($programName);
         $subsidiAmount = cleanQuery($subsidiAmount);
+        $donationType = cleanQuery($donationType);
         $donationUnit = cleanQuery($donationUnit);
         $donationNumber = cleanQuery($donationNumber);
         $remarks = cleanQuery($remarks);
@@ -1542,6 +1559,7 @@ class Program
                             programName = '$programName',
                             subsidiAmount = '$subsidiAmount',
                             donationUnit = '$donationUnit',
+                            donationType = '$donationType',
                             donationNumber = '$donationNumber',
                             remarks = '$remarks',
                             publish = '$publish',
@@ -1559,6 +1577,7 @@ class Program
                             programYear = '$programYear',
                             programName = '$programName',
                             subsidiAmount = '$subsidiAmount',
+                            donationType = '$donationType',
                             donationUnit = '$donationUnit',
                             donationNumber = '$donationNumber',
                             remarks = '$remarks',

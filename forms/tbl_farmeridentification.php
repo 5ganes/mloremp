@@ -51,7 +51,7 @@
 <tr><td></td></tr>
 
 <tr>
-    <td><strong class="fronttitle">गर्ने मुख्य वाली</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">मुख्य वाली</strong> :<span class="asterisk">*</span></td>
     <td>
         <div class="inputleft inputright" style="margin-left: 0">
             <select name="mainCrop" class="text" required>

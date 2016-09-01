@@ -56,6 +56,7 @@
                 </tr>
             </table>
         </th>
+        <th class="priceheading">सिचाई हुने समय</th>
     </tr>
     <? while($rec=$conn->fetchArray($record))
 	{?>
@@ -96,6 +97,14 @@
                     <tr>
                         <td class="pricedata"><?=$rec['femaleNumber'];?></td>
                         <td class="pricedata"><?=$rec['maleNumber'];?></td>
+                    </tr>
+                </table>
+            </td>
+            <td>
+                <table>
+                    <tr>
+                        <td class="pricedata"><? $itu=$program->getUnitById($rec['irrigationTimeUnit']); 
+                        echo $itu['name'];?></td>
                     </tr>
                 </table>
             </td>

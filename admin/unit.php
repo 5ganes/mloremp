@@ -151,6 +151,8 @@ if($_GET['type']=="del")
                                     <option value="समूहको प्रकार" <? if($category=="समूहको प्रकार"){ echo 'selected="selected"';}?>>समूहको प्रकार</option>
                                     <option value="नवीकरण" <? if($category=="नवीकरण"){ echo 'selected="selected"';}?>>नवीकरण</option>
                                     <option value="पोखरीको प्रकार" <? if($category=="पोखरीको प्रकार"){ echo 'selected="selected"';}?>>पोखरीको प्रकार</option>
+                                    <option value="सिचाई हुने समय" <? if($category=="सिचाई हुने समय"){ echo 'selected="selected"';}?>>सिचाई हुने समय</option>
+                                    <option value="अनुदान प्रकार" <? if($category=="अनुदान प्रकार"){ echo 'selected="selected"';}?>>अनुदान प्रकार</option>
                                 </select></td>
                             </tr>
                             <tr><td></td></tr>

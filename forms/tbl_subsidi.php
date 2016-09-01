@@ -84,6 +84,27 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">अनुदान प्रकार</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft" style="width:13%">
+            <select name="donationType" class="text" style="width:80px;">
+                <?
+                $unit=$groups->getUnitByCategory("अनुदान प्रकार");
+                while($unitGet=$conn->fetchArray($unit))
+                {?>
+                    <option value="<?=$unitGet['id'];?>" 
+                    <? if($unitGet['id']==$donationType){ echo 'selected="selected"';}?>>
+                        <?=$unitGet['name'];?>
+                    </option>
+                <? }
+                ?>
+            </select>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">अनुदान पाउने</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:13%">

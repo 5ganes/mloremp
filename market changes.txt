@@ -1,0 +1,13 @@
+//stahi ko change garne
+//janashankya ma mahila ra purush chahiyo
+//nursery information lai resource center banune
+//utpadakatyo kg/hectre
+//farmer identification ma garne hataune 
+//rice maize and wheat add garne price detail ma
+
+sewa kendra select garda sewa kendra ko name option aaunu paryo training program ma
+
+//anudan ko type add garne option Cash,technical,bastugat in SUBSIDY INFORMATION
+
+//benefit cost ratio(crop) 
+//benefit cost ratio(fruit)

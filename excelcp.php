@@ -27,13 +27,14 @@ if($typeId==DISTRICT){
 		$uArea[]=$row['unirrigatedArea'];$bArea[]=$row['barrenAreaHector'];$gArea[]=$row['grassAreaHector'];
 		$fArea[]=$row['forestAreaHector'];$oArea[]=$row['otherAreaHector'];$tFNumber[] =$row["totalFamilyNumber"];$tPopulation[] =$row["totalPopulation"];
 		$fNumber[] =$row["femaleNumber"];$mNumber[] =$row["maleNumber"];$fFNumber[] =$row["farmerFamilyNumber"];$fPopulation[] =$row["farmerPopulation"];
+		$itu=$program->getUnitById($row['irrigationTimeUnit']); $itu[]=$itunit['name'];
 	};
-	fputcsv($output, array('Fiscal Year','Total Area(H)','Agriculture Area(H)','Irrigated Area(H)','Unirrigated Area(H)','Barren Area(H)',
+	fputcsv($output, array('Fiscal Year','Total Area(H)','Agriculture Area(H)','Irrigated Area(H)','Unirrigated Area(H)','Barren Area(H)','Irrigation Time Unit',
 	'Grass Area(H)','Forest Area(H)','Other Area(H)','Total Family Number','Total Population','Female Number','Male Number','Farmer Family Number',
 	'Farmer Population'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$tArea[$c],$aArea[$c],$iArea[$c],$uArea[$c],$bArea[$c],$gArea[$c],$fArea[$c],$oArea[$c],$tFNumber[$c],
+		fputcsv($output, array($fYear[$c],$tArea[$c],$aArea[$c],$iArea[$c],$uArea[$c],$bArea[$c],$itunit[$c],$gArea[$c],$fArea[$c],$oArea[$c],$tFNumber[$c],
 		$tPopulation[$c],$fNumber[$c],$mNumber[$c],$fFNumber[$c],$fPopulation[$c]));	
 	}	
 }
@@ -214,13 +215,14 @@ else if($typeId==INSURANCE){
 	//Store it into the array
 	while ($row = mysql_fetch_array($record))
 	{
-		$fYear[] =$row["fiscalYear"];$insName[]=$row['insuranceHolder'];$cName[]=$row['cropName'];
-		$cArea[]=$row['cropAreaHector'];$iAmount[]=$row['insuranceAmount'];$rem[]=$row['remarks'];
+		$fYear[] =$row["fiscalYear"];$insName[]=$row['insuranceHolder'];$insCompany[]=$row['insuranceCompany'];
+		$cName[]=$row['cropName'];$cArea[]=$row['cropAreaHector'];$iAmount[]=$row['insuranceAmount'];
+		$rem[]=$row['remarks'];
 	};
-	fputcsv($output, array('Fiscal Year','Insurance Holder','Crop Name','Crop Area(H)','Insurance Amount(Rs)','Remarks'));
+	fputcsv($output, array('Fiscal Year','Insurance Holder','Insurance Company','Crop Name','Crop Area(H)','Insurance Amount(Rs)','Remarks'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$insName[$c],$cName[$c],$cArea[$c],$iAmount[$c],$rem[$c]));	
+		fputcsv($output, array($fYear[$c],$insName[$c],$insCompany[$c],$cName[$c],$cArea[$c],$iAmount[$c],$rem[$c]));	
 	}	
 }
 else if($typeId==FARMER){
@@ -246,11 +248,12 @@ else if($typeId==FISHERY){
 		$fit=$program->getUnitById($row['farmerIdType']);
 		$fYear[] =$row["fiscalYear"];$fName[]=$row['farmerName'];$vdc[]=$row['addressVdcMunicipality'];$ward[]=$row['addressWardNumber'];$lType[]=$row['lakeType'];
 		$lNumber[]=$row['lakeNumber'];$lArea[]=$row['lakeAreaHector'];$prod[]=$row['productionTon'];
+		$fSpecies[]=$row['fishSpecies'];
 	};
-	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Lake Type','Lake Number','Lake Area(H)','Production(Ton)'));
+	fputcsv($output, array('Fiscal Year','Farmer Name','VDC/Municipality','Ward No','Lake Type','Lake Number','Lake Area(H)','Fish Species','Production(Ton)'));
 	for($c=0;$c<count($fYear);$c++)
 	{
-		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$lType[$c],$lNumber[$c],$lArea[$c],$prod[$c]));	
+		fputcsv($output, array($fYear[$c],$fName[$c],$vdc[$c],$ward[$c],$lType[$c],$lNumber[$c],$lArea[$c],$fSpecies[$c],$prod[$c]));	
 	}	
 }
 /*

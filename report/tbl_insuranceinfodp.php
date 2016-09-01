@@ -5,10 +5,11 @@
 <table class="report" width="60%" cellspacing="2" cellpadding="2" border="1" style="font-size:14px">
     <tr>
         <th class="priceheading" style="width:145px">विमकको नाम</th>
-
+        <th class="priceheading" style="width:145px">विमा गर्ने कम्पनीको नाम</th>
         <th class="priceheading" style="width:145px">वाली</th>
         <th class="priceheading" style="width:56px">विमित बालीको क्षेत्रफल(हे)</th>
         <th class="priceheading" style="width:56px">विमांक रकम(रु)</th>
+        <th class="priceheading" style="width:56px">क्षतिपुति रकम (हजारमा)</th>
         <th class="priceheading" style="width:56px">किसानको संख्या</th>
         <th class="priceheading" style="width:140px">सुझाबहरु</th>
     </tr>
@@ -18,6 +19,11 @@
             <td border="0">
                 <table>
                     <tr><td class="pricedata" style="width:273px;"><?=$rec['insuranceHolder'];?></td></tr>
+                </table>
+            </td>
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata" style="width:273px;"><?=$rec['insuranceCompany'];?></td></tr>
                 </table>
             </td>
             <td border="0">
@@ -33,6 +39,11 @@
             <td border="0">
                 <table>
                     <tr><td class="pricedata"><?=$rec['insuranceAmount'];?></td></tr>
+                </table>
+            </td>
+            <td border="0">
+                <table>
+                    <tr><td class="pricedata"><?=$rec['compensation'];?></td></tr>
                 </table>
             </td>
             <td border="0">

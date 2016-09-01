@@ -91,6 +91,16 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">विषयगत कार्यक्षेत्र</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <p>
+            <textarea name="subjectiveArea" class="text" rows="4" style="width:400px;padding: 7px" required><?=$subjectiveArea;?></textarea></p>
+        <p class="error" id="subjectiveArea"></p>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">दर्ता मिति</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:32%">

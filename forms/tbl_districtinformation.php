@@ -79,8 +79,31 @@
         <div style="clear:both"></div>
     </td>
 </tr>
+
 <tr>
-    <td><strong class="fronttitle">स्थाई क्षेत्रफल</strong> :<span class="asterisk">*</span></td>
+    <td><strong class="fronttitle">सिचाई हुने समय</strong> :<span class="asterisk">*</span></td>
+    <td>
+      <div class="inputleft">
+            <div>एकाई</div>
+            <div>
+                <select name="irrigationTimeUnit" class="number" style="width:100px; height:20px;">
+                <?
+                $unit=$groups->getUnitByCategory("सिचाई हुने समय");
+                while($unitGet=$conn->fetchArray($unit))
+                {?>
+                    <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$irrigationTimeUnit){ echo 'selected="selected"';}?>>
+                        <?=$unitGet['name'];?>
+                    </option>  
+                <? }
+                ?>
+                </select>
+            </div>
+      </div>   
+    </td>
+</tr>
+
+<tr>
+    <td><strong class="fronttitle">स्थायी क्षेत्रफल</strong> :<span class="asterisk">*</span></td>
     <td>
         <div class="inputleft">
         	<div>घाँसे</div>

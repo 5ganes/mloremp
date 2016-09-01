@@ -16,7 +16,7 @@ if (isset($_POST['save']))
 		if($_POST['tableName']=="tbl_districtinformation")
 		{
 			$program->saveDistrictInformation($id,$fiscalYear,$userId,$manualDate,$areaUnit,$totalArea,$agricultureArea,$irrigatedArea,
-				$unirrigatedArea,$barrenArea,$grassArea,$forestArea,$otherArea,$totalFamilyNumber,$totalPopulation,$femaleNumber,$maleNumber,
+				$unirrigatedArea,$barrenArea,$irrigationTimeUnit,$grassArea,$forestArea,$otherArea,$totalFamilyNumber,$totalPopulation,$femaleNumber,$maleNumber,
 				$farmerFamilyNumber,$farmerPopulation,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_crop")
@@ -57,7 +57,7 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_agrigroups")
 		{
 			$newId = $program->saveAgrigroups($id,$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,
-			$femaleNumber,$maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
+			$femaleNumber,$maleNumber,$groupType,$subjectiveArea,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
 			$debtAmount,$groupStatus,$contactPerson,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_agricoop")
@@ -74,7 +74,7 @@ if (isset($_POST['save']))
 		}
 		elseif($_POST['tableName']=="tbl_insuranceinfo")
 		{
-			$newId = $program->saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
+			$newId = $program->saveInsuranceInfo($id,$fiscalYear,$userId,$manualDate,$insuranceHolder,$insuranceCompany,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$compensation,$totalFarmer,
 			$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_farmeridentification")
@@ -85,7 +85,7 @@ if (isset($_POST['save']))
 		elseif($_POST['tableName']=="tbl_fisheryinformation")
 		{
 			$newId = $program->saveFisheryInformation($id,$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,
-			$lakeNumber,$areaUnit,$lakeArea,$productionUnit,$production,$publish,$weight);
+			$lakeNumber,$areaUnit,$lakeArea,$fishSpecies,$productionUnit,$production,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_price")
 		{
@@ -108,7 +108,7 @@ if (isset($_POST['save']))
 			//echo $donationNumber; die();
 			$name=$_POST['name'];$cast=$_POST['cast'];$gender=$_POST['gender'];$age=$_POST['age'];$addressVdcMunicipality=$_POST['addressVdcMunicipality'];
 			$addressWardNumber=$_POST['addressWardNumber'];$object=$_POST['object'];$amount=$_POST['amount'];
-			$newId = $program->saveSubsidi($id,$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,
+			$newId = $program->saveSubsidi($id,$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,$donationType,
 			$donationUnit,$donationNumber,$name,$cast,$gender,$age,$addressVdcMunicipality,$addressWardNumber,$object,$amount,$remarks,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_cropprofit")
@@ -148,7 +148,7 @@ if (isset($_POST['save']))
 			if($_POST['tableName']=="tbl_districtinformation")
 			{
 				$newId = $program->saveDistrictInformation("",$fiscalYear,$userId,$manualDate,$areaUnit,$totalArea,$agricultureArea,$irrigatedArea,
-				$unirrigatedArea,$barrenArea,$grassArea,$forestArea,$otherArea,$totalFamilyNumber,$totalPopulation,$femaleNumber,$maleNumber,
+				$unirrigatedArea,$barrenArea,$irrigationTimeUnit,$grassArea,$forestArea,$otherArea,$totalFamilyNumber,$totalPopulation,$femaleNumber,$maleNumber,
 				$farmerFamilyNumber,$farmerPopulation,$publish,$weight);
 			}
 			if($_POST['tableName']=="tbl_crop")
@@ -190,7 +190,7 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_agrigroups")
 			{
 				$newId = $program->saveAgrigroups("",$fiscalYear,$userId,$manualDate,$groupName,$addressVdcMunicipality,$addressWardNumber,$establishedYear,
-				$femaleNumber,$maleNumber,$groupType,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
+				$femaleNumber,$maleNumber,$groupType,$subjectiveArea,$registeredDay,$registeredMonth,$registeredYear,$registrationNumber,$meetingDay,$collectedFundPerMonth,$totalFund,
 				$debtAmount,$groupStatus,$contactPerson,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_agricoop")
@@ -207,7 +207,7 @@ if (isset($_POST['save']))
 			}
 			elseif($_POST['tableName']=="tbl_insuranceinfo")
 			{
-				$newId = $program->saveInsuranceInfo("",$fiscalYear,$userId,$manualDate,$insuranceHolder,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$totalFarmer,
+				$newId = $program->saveInsuranceInfo("",$fiscalYear,$userId,$manualDate,$insuranceHolder,$insuranceCompany,$cropName,$cropCode,$cropAreaUnit,$cropArea,$insuranceAmount,$compensation,$totalFarmer,
 				$remarks,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_farmeridentification")
@@ -218,7 +218,7 @@ if (isset($_POST['save']))
 			elseif($_POST['tableName']=="tbl_fisheryinformation")
 			{
 				$newId = $program->saveFisheryInformation("",$fiscalYear,$userId,$manualDate,$farmerName,$addressVdcMunicipality,$addressWardNumber,$lakeType,
-				$lakeNumber,$areaUnit,$lakeArea,$productionUnit,$production,$publish,$weight);
+				$lakeNumber,$areaUnit,$lakeArea,$fishSpecies,$productionUnit,$production,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_price")
 			{
@@ -240,7 +240,7 @@ if (isset($_POST['save']))
 				//print_r($gender); die();
 				$name=$_POST['name'];$cast=$_POST['cast'];$gender=$_POST['gender'];$age=$_POST['age'];$addressVdcMunicipality=$_POST['addressVdcMunicipality'];
 				$addressWardNumber=$_POST['addressWardNumber'];$object=$_POST['object'];$amount=$_POST['amount'];
-				$newId = $program->saveSubsidi("",$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,
+				$newId = $program->saveSubsidi("",$fiscalYear,$userId,$manualDate,$programDay,$programMonth,$programYear,$programName,$subsidiAmount,$donationType,
 				$donationUnit,$donationNumber,$name,$cast,$gender,$age,$addressVdcMunicipality,$addressWardNumber,$object,$amount,$remarks,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_cropprofit")

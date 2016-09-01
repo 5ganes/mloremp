@@ -8,6 +8,18 @@
     </td>
 </tr>
 <tr><td></td></tr>
+
+<tr>
+    <td><strong class="fronttitle">विमा गर्ने कम्पनीको नाम</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="margin-left: 0">
+            <p><input type="text" name="insuranceCompany" style="width:194px" class="text" value="<?=$insuranceCompany;?>" required /></p>
+            <p class="error" id="insuranceCompany"></p>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
 <tr>
     <td><strong class="fronttitle">विमित बाली</strong> :<span class="asterisk">*</span></td>
     <td>
@@ -78,6 +90,17 @@
         <div class="inputleft inputright" style="width:14%">
             <p><input type="text" name="insuranceAmount" class="number" value="<?=$insuranceAmount;?>" required /></p>
             <p class="error" id="insuranceAmount"></p>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
+    <td><strong class="fronttitle">क्षतिपुति रकम (हजारमा)</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="width:14%">
+            <p><input type="text" name="compensation" class="number" value="<?=$compensation;?>" required /></p>
+            <p class="error" id="compensation"></p>
         </div>
     </td>
 </tr>

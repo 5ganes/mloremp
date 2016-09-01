@@ -103,6 +103,17 @@
 <tr><td></td></tr>
 
 <tr>
+    <td><strong class="fronttitle">माछाको जात</strong> :<span class="asterisk">*</span></td>
+    <td>
+        <div class="inputleft inputright" style="width:14%;">
+            <p><input type="text" name="fishSpecies" class="text" value="<?=$fishSpecies;?>" required /></p>
+            <p class="error" id="fishSpecies"></p>
+        </div>
+    </td>
+</tr>
+<tr><td></td></tr>
+
+<tr>
     <td><strong class="fronttitle">गत बर्षको सरदर उत्पादन</strong> :<span class="asterisk">*</span></td>
     <td>
     	<div class="inputleft" style="width:27.7%">
