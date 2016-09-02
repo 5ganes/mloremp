@@ -99,7 +99,7 @@ if (isset($_POST['save']))
 			//echo $participantNumber; die();
 			$participantName=$_POST['participantName'];$participantAddress=$_POST['participantAddress'];
 			$participantGender=$_POST['participantGender'];$participantCast=$_POST['participantCast'];$participantAge=$_POST['participantAge'];
-			$newId = $program->saveTraining($id,$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,
+			$newId = $program->saveTraining($id,$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,$sewakendra,
 			$participantNumber,$participantName,$participantAddress,$participantGender,$participantCast,$participantAge,$maleNumber,$femaleNumber,
 			$lowcastNumber,$indigenousNumber,$otherNumber,$publish,$weight);
 		}
@@ -231,7 +231,7 @@ if (isset($_POST['save']))
 			{
 				$participantName=$_POST['participantName'];$participantAddress=$_POST['participantAddress'];
 				$participantGender=$_POST['participantGender'];$participantCast=$_POST['participantCast'];$participantAge=$_POST['participantAge'];
-				$newId = $program->saveTraining("",$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,
+				$newId = $program->saveTraining("",$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,$sewakendra,
 				$participantNumber,$participantName,$participantAddress,$participantGender,$participantCast,$participantAge,$maleNumber,$femaleNumber,
 				$lowcastNumber,$indigenousNumber,$otherNumber,$publish,$weight);
 			}

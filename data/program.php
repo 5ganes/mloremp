@@ -1411,7 +1411,7 @@ class Program
     }
     
     //for training
-    function saveTraining($id,$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,$participantNumber,
+    function saveTraining($id,$fiscalYear,$userId,$manualDate,$trainingDay,$trainingMonth,$trainingYear,$trainingName,$trainingLevel,$sewakendra,$participantNumber,
     $participantName,$participantAddress,$participantGender,$participantCast,$participantAge,$maleNumber,$femaleNumber,$lowcastNumber,$indigenousNumber,
     $otherNumber,$publish,$weight)
     {
@@ -1426,6 +1426,7 @@ class Program
         $trainingYear = cleanQuery($trainingYear);
         $trainingName = cleanQuery($trainingName);
         $trainingLevel = cleanQuery($trainingLevel);
+        $sewakendra = cleanQuery($sewakendra);
         $participantNumber = cleanQuery($participantNumber);
         $maleNumber = cleanQuery($maleNumber);
         $femaleNumber = cleanQuery($femaleNumber);
@@ -1447,6 +1448,7 @@ class Program
                             trainingYear = '$trainingYear',
                             trainingName = '$trainingName',
                             trainingLevel = '$trainingLevel',
+                            sewakendra = '$sewakendra',
                             participantNumber = '$participantNumber',
                             maleNumber = '$maleNumber',
                             femaleNumber = '$femaleNumber',
@@ -1468,6 +1470,7 @@ class Program
                             trainingYear = '$trainingYear',
                             trainingName = '$trainingName',
                             trainingLevel = '$trainingLevel',
+                            sewakendra = '$sewakendra',
                             participantNumber = '$participantNumber',
                             maleNumber = '$maleNumber',
                             femaleNumber = '$femaleNumber',

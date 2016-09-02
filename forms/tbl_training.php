@@ -1,3 +1,7 @@
+<?php
+    require_once("data/sewakendra.php");
+    $sewa = new Sewakendra();
+?>
 <tr>
     <td><strong class="fronttitle">ताालिम भएको मिति</strong> :<span class="asterisk">*</span></td>
     <td>
@@ -67,7 +71,8 @@
 <tr>
     <td><strong class="fronttitle">तालिमको स्तर</strong> :</td>
     <td>
-    	<select name="trainingLevel" class="text" onChange="sewakendra_get(this.value)">
+    	<select name="trainingLevel" class="text" onChange="sewakendra_get(this.value)" required>
+            <option value="">Select</option>
             <?
 			$level=mysql_query("select id,program_level from programlevel where publish='Yes'");
 			while($levelGet=mysql_fetch_array($level))
@@ -80,7 +85,11 @@
         </select>&nbsp;&nbsp;
         सेवाकेन्द्र : 
         <select name="sewakendra" class="text" id="sewakendra">
-            
+            <option value="">Select</option>
+            <?php if(isset($sewakendra) and $sewakendra!=0){
+                $sewakendraName=$conn->fetchArray($sewa->getById($sewakendra));
+                echo '<option selected value="'.$sewakendra.'">'.$sewakendraName['sewakendraName'].'</option>';
+            }?>
         </select>
  	</td>
 </tr>

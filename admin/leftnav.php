@@ -32,6 +32,7 @@
             <li><a href="usertype.php">Manage User Type</a></li>
             <li><a href="users.php">Manage Users</a></li>
             <li><a href="unit.php">Manage Units</a></li>
+            <li><a href="sewakendra.php">Manage Sewakendra</a></li>
         </ul>
   	</li>
     <li>
