@@ -1977,6 +1977,185 @@ class Program
             }   
         }
     }
+
+    //for cost profit analysis
+    function saveCostProfitAnalysis($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
+            $farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
+            $cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+            $commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight)
+    {
+        global $conn;
+        
+        $id = cleanQuery($id);
+        $fiscalYear = cleanQuery($fiscalYear);
+        $userId = cleanQuery($userId);
+        $manualDate = cleanQuery($manualDate);
+        $addressVdcMunicipality = cleanQuery($addressVdcMunicipality);
+        $addressWardNumber = cleanQuery($addressWardNumber);
+        $pocketSector = cleanQuery($pocketSector);
+        $sewaKendra = cleanQuery($sewaKendra);
+        $farmerName = cleanQuery($farmerName);
+        
+        $farmerAge = cleanQuery($farmerAge);
+        $farmerEducation = cleanQuery($farmerEducation);
+        $otherOccupation = cleanQuery($otherOccupation);
+        $groupName = cleanQuery($groupName);
+        
+        $landAreaUnit = cleanQuery($landAreaUnit);
+        $totalArea = cleanQuery($totalArea);
+        $agricultureArea = cleanQuery($agricultureArea);
+        //converting area into hector
+        if($landAreaUnit==KATHTHA){ $totalAreaHector=$totalArea/30;$agricultureAreaHector=$agricultureArea/30; }
+        else if($landAreaUnit==ROPANI){ $totalAreaHector=$totalArea/19.66;$agricultureAreaHector=$agricultureArea/19.66; }
+        else if($landAreaUnit==BIGHAA){ $totalAreaHector=$totalArea/1.48;$agricultureAreaHector=$agricultureArea/1.48; }
+        else if($landAreaUnit==BARGAMITAR){ $totalAreaHector=$totalArea/10000;$agricultureAreaHector=$agricultureArea/10000; }
+        else{ $totalAreaHector=$totalArea;$agricultureAreaHector=$agricultureArea; }
+        
+        $familyNumber = cleanQuery($familyNumber);
+        $cropName = cleanQuery($cropName);
+        $cropSpecies = cleanQuery($cropSpecies);
+        
+        $cropAreaUnit = cleanQuery($cropAreaUnit);
+        $cropIrrigatedArea = cleanQuery($cropIrrigatedArea);
+        $cropUnirrigatedArea = cleanQuery($cropUnirrigatedArea);
+        //converting area into hector
+        if($cropAreaUnit==KATHTHA){ $cropIrrigatedAreaHector=$cropIrrigatedArea/30;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/30; }
+        else if($cropAreaUnit==ROPANI){ $cropIrrigatedAreaHector=$cropIrrigatedArea/19.66;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/19.66; }
+        else if($cropAreaUnit==BIGHAA){ $cropIrrigatedAreaHector=$cropIrrigatedArea/1.48;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/1.48; }
+        else if($cropAreaUnit==BARGAMITAR){ $cropIrrigatedAreaHector=$cropIrrigatedArea/10000;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/10000; }
+        else{ $cropIrrigatedAreaHector=$cropIrrigatedArea;$cropUnirrigatedAreaHector=$cropUnirrigatedArea; }
+        
+        $constructionExpense = cleanQuery($constructionExpense);
+        $collectorName = cleanQuery($collectorName);
+        $collectorPost = cleanQuery($collectorPost);
+
+        $current_cost = cleanQuery($current_cost);
+        $economic_cost = cleanQuery($economic_cost);
+        $total_cost = cleanQuery($total_cost);
+        
+        $publish = cleanQuery($publish);
+        $weight = cleanQuery($weight);
+        $priceType = cleanQuery($priceType); //echo print_r($average); die();
+        
+        if($id > 0)
+        {
+            $sql = "update tbl_costprofitanalysis
+                    SET
+                        fiscalYear = '$fiscalYear',
+                        userId = '$userId',
+                        manualDate = '$manualDate',
+                        addressVdcMunicipality = '$addressVdcMunicipality',
+                        addressWardNumber = '$addressWardNumber',
+                        pocketSector = '$pocketSector',
+                        sewaKendra = '$sewaKendra',
+                        farmerName = '$farmerName',
+                        farmerAge = '$farmerAge',
+                        farmerEducation = '$farmerEducation',
+                        otherOccupation = '$otherOccupation',
+                        groupName = '$groupName',
+                        landAreaUnit = '$landAreaUnit',
+                        totalArea = '$totalArea',
+                        totalAreaHector = '$totalAreaHector',
+                        agricultureArea = '$agricultureArea',
+                        agricultureAreaHector = '$agricultureAreaHector',
+                        familyNumber = '$familyNumber',
+                        cropName = '$cropName',
+                        cropSpecies = '$cropSpecies',
+                        cropAreaUnit = '$cropAreaUnit',
+                        cropIrrigatedArea = '$cropIrrigatedArea',
+                        cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',
+                        cropUnirrigatedArea = '$cropUnirrigatedArea',
+                        cropUnirrigatedAreaHector = '$cropUnirrigatedAreaHector',
+                        constructionExpense = '$constructionExpense',
+                        collectorName = '$collectorName',
+                        collectorPost = '$collectorPost',
+                        current_cost = '$current_cost',
+                        economic_cost = '$economic_cost',
+                        total_cost = '$total_cost',
+                        publish = '$publish',
+                        weight = '$weight'
+                    WHERE
+                        id='$id'"; //echo $sql; die();
+        }
+        else
+        {
+            //$r1=$rate1[$i];$r2=$rate2[$i];$r3=$rate3[$i];$r4=$rate4[$i];$r5=$rate5[$i];$avg=$average[$i];$rem=$remarks[$i];
+            $sql = "INSERT INTO tbl_costprofitanalysis
+                    SET
+                        fiscalYear = '$fiscalYear',
+                        userId = '$userId',
+                        manualDate = '$manualDate',
+                        addressVdcMunicipality = '$addressVdcMunicipality',
+                        addressWardNumber = '$addressWardNumber',
+                        pocketSector = '$pocketSector',
+                        sewaKendra = '$sewaKendra',
+                        farmerName = '$farmerName',
+                        farmerAge = '$farmerAge',
+                        farmerEducation = '$farmerEducation',
+                        otherOccupation = '$otherOccupation',
+                        groupName = '$groupName',
+                        landAreaUnit = '$landAreaUnit',
+                        totalArea = '$totalArea',
+                        totalAreaHector = '$totalAreaHector',
+                        agricultureArea = '$agricultureArea',
+                        agricultureAreaHector = '$agricultureAreaHector',
+                        familyNumber = '$familyNumber',
+                        cropName = '$cropName',
+                        cropSpecies = '$cropSpecies',
+                        cropAreaUnit = '$cropAreaUnit',
+                        cropIrrigatedArea = '$cropIrrigatedArea',
+                        cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',
+                        cropUnirrigatedArea = '$cropUnirrigatedArea',
+                        cropUnirrigatedAreaHector = '$cropUnirrigatedAreaHector',
+                        constructionExpense = '$constructionExpense',
+                        collectorName = '$collectorName',
+                        collectorPost = '$collectorPost',
+                        current_cost = '$current_cost',
+                        economic_cost = '$economic_cost',
+                        total_cost = '$total_cost',
+                        publish = '$publish',
+                        weight = '$weight',
+                        onDate = NOW()";
+                        //echo $sql; die();
+        }
+        $conn->exec($sql);
+        if($id > 0)
+        {
+            $this->saveCostProfitAnalysisCommodities($commodity,$commodityUnit,$amount,$rate,$investment,$remarks,$id,"edit");
+            return $conn -> affRows();
+        }
+        $insertId=$conn->insertId();
+        $this->saveCostProfitAnalysisCommodities($commodity,$commodityUnit,$amount,$rate,$investment,$remarks,$insertId,"add");
+        return $insertId;
+    }
+    
+    function saveCostProfitAnalysisCommodities($commodity,$commodityUnit,$amount,$rate,$investment,$remarks,$parentId,$action)
+    {
+        if($action=="add")
+        {
+            for($i=0;$i<count($commodity);$i++)
+            {
+                $cmdt=$commodity[$i];$cmdtu=$commodityUnit[$i];$amt=$amount[$i];$rt=$rate[$i];$invst=$investment[$i];$rem=$remarks[$i];
+                $sql="insert into costprofitanalysiscommodities set commodity='$cmdt', commodityUnit='$cmdtu', amount='$amt', rate='$rt', investment='$invst', remarks='$rem', 
+                parentId='$parentId'";
+                //echo $sql;
+                mysql_query($sql);
+            }
+        }
+        else
+        {
+            for($i=0;$i<count($commodity);$i++)
+            {
+                $cmdt=$commodity[$i];$cmdtu=$commodityUnit[$i];$amt=$amount[$i];$rt=$rate[$i];$invst=$investment[$i];$rem=$remarks[$i];
+                $row=mysql_fetch_array(mysql_query("select id from costprofitanalysiscommodities where parentId='$parentId' order by id asc limit $i,1"));
+                $editId=$row['id'];
+                $sql="update costprofitanalysiscommodities set commodity='$cmdt', commodityUnit='$cmdtu', amount='$amt', rate='$rt', investment='$invst', remarks='$rem' 
+                where id='$editId'";
+                //echo $sql;
+                mysql_query($sql);
+            }   
+        }
+    }
     
     function getNameById($id)
     {
