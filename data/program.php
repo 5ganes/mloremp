@@ -1639,8 +1639,8 @@ class Program
     
     //for crop profit
     function saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
-            $farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
-            $cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+            $farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
+            $cropVarietyId,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
             $commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight)
     {
         global $conn;
@@ -1671,8 +1671,8 @@ class Program
         else{ $totalAreaHector=$totalArea;$agricultureAreaHector=$agricultureArea; }
         
         $familyNumber = cleanQuery($familyNumber);
-        $cropName = cleanQuery($cropName);
-        $cropSpecies = cleanQuery($cropSpecies);
+        $cropId = cleanQuery($cropId);
+        $cropVarietyId = cleanQuery($cropVarietyId);
         
         $cropAreaUnit = cleanQuery($cropAreaUnit);
         $cropIrrigatedArea = cleanQuery($cropIrrigatedArea);
@@ -1718,8 +1718,8 @@ class Program
                         agricultureArea = '$agricultureArea',
                         agricultureAreaHector = '$agricultureAreaHector',
                         familyNumber = '$familyNumber',
-                        cropName = '$cropName',
-                        cropSpecies = '$cropSpecies',
+                        cropId = '$cropId',
+                        cropVarietyId = '$cropVarietyId',
                         cropAreaUnit = '$cropAreaUnit',
                         cropIrrigatedArea = '$cropIrrigatedArea',
                         cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',
@@ -1759,8 +1759,8 @@ class Program
                         agricultureArea = '$agricultureArea',
                         agricultureAreaHector = '$agricultureAreaHector',
                         familyNumber = '$familyNumber',
-                        cropName = '$cropName',
-                        cropSpecies = '$cropSpecies',
+                        cropId = '$cropId',
+                        cropVarietyId = '$cropVarietyId',
                         cropAreaUnit = '$cropAreaUnit',
                         cropIrrigatedArea = '$cropIrrigatedArea',
                         cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',

@@ -65,6 +65,29 @@
         }
     }
 </script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#cropId').change(function(){
+            var cropId=this.value;
+            // alert(cropId);
+            $.ajax({
+                type : 'post',
+                url : 'forms/get_cropvariety.php', 
+                data :  {cropId:cropId}, 
+                dataType:'html',
+                success : function(data)
+                {
+                    // console.log('sdfd');
+                    $('#cropVarietyId').html(data);
+                }
+            });
+
+        });
+    });
+</script>
+
 <tr>
     <td><strong class="fronttitle">ठेगाना</strong> :<span class="asterisk">*</span></td>
     <td>
@@ -220,8 +243,20 @@
 <tr>
     <td><strong class="fronttitle">बालीको नाम</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<p><input type="text" name="cropName" class="text" value="<?=$cropName;?>" required /></p>
-        <p class="error" id="cropName"></p>
+    	<p>
+            <select name="cropId" id="cropId" style="width:300px;" required>
+                <option value="">Select Crop</option>
+                <?php
+                $crop=$crop->getCrops();
+                while($cropGet=$conn->fetchArray($crop))
+                {?>
+                    <option value="<?=$cropGet['id'];?>" <? if($cropId==$cropGet['id'] or $_GET['cropId']==$cropGet['id'])
+                    { echo 'selected="selected"';}?>><?=$cropGet['name'];?></option>
+                <? }?>      
+            </select>
+            <!-- <input type="text" name="cropName" class="text" value="<?=$cropName;?>" required /> -->
+        </p>
+        <!-- <p class="error" id="cropId"></p> -->
     </td>
 </tr>
 <tr><td></td></tr>
@@ -229,8 +264,18 @@
 <tr>
     <td><strong class="fronttitle">बालीको जात</strong> :<span class="asterisk">*</span></td>
     <td>
-    	<p><input type="text" name="cropSpecies" class="text" value="<?=$cropSpecies;?>" required /></p>
-        <p class="error" id="cropSpecies"></p>
+    	<p>
+            <select name="cropVarietyId" id="cropVarietyId" style="width:300px" required>
+                <option value="">Select Crop Variety</option>
+                <?php
+                    if(isset($id)){
+                        $variety = $conn->fetchArray($cropvariety->getById($cropVarietyId));
+                        echo '<option value="'.$cropVarietyId.'" selected>'.$variety['name'].'</select>';
+                    }
+                ?>
+            </select>
+            <!-- <input type="text" name="cropSpecies" class="text" value="<?=$cropSpecies;?>" required /> -->
+        </p>
     </td>
 </tr>
 <tr><td></td></tr>

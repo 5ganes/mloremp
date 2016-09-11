@@ -31,6 +31,9 @@ $feedbacks			    = new Feedbacks();
 $donate                 = new Donate();
 $enewsletters			= new Enewsletters();
 
+require_once("data/cropvariety.php");
+$cropvariety = new Cropvariety();
+
 require_once("data/constants.php");
 require_once("data/sqlinjection.php");
 require_once("data/youtubeimagegrabber.php");

@@ -82,4 +82,11 @@ class Cropvariety
 		$result = $conn->exec($sql);
 		return $result;
 	}
+
+	function getCropVarietiesByCropId($cropId){
+		global $conn;
+		$sql="select id, name from cropvariety where cropId='$cropId'";
+		$result = $conn->exec($sql);
+		return $result;
+	}
 }
