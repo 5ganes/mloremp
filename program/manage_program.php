@@ -115,10 +115,14 @@ if (isset($_POST['save']))
 		{
 			$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
 			$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+			
+			$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+			$total_cost = $_POST['total_cost'];
+			
 			$newId = $program->saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
 			$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
 			$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
-			$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
+			$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_fruitprofit")
 		{
@@ -129,19 +133,19 @@ if (isset($_POST['save']))
 			$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
 			$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
 		}
-		elseif($_POST['tableName']=="tbl_costprofitanalysis")
-		{
-			$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
-			$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+		// elseif($_POST['tableName']=="tbl_costprofitanalysis")
+		// {
+		// 	$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
+		// 	$investment=$_POST['investment'];$remarks=$_POST['remarks'];
 			
-			$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
-			$production = $_POST['production'];
+		// 	$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+		// 	$production = $_POST['production'];
 			
-			$newId = $program->saveCostProfitAnalysis($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
-			$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
-			$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
-			$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
-		}
+		// 	$newId = $program->saveCostProfitAnalysis($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
+		// 	$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
+		// 	$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+		// 	$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
+		// }
 	
 		//$diary -> saveImage($_POST['id']);
 		$priceType="";
@@ -260,10 +264,14 @@ if (isset($_POST['save']))
 			{
 				$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
 				$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+				
+				$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+				$total_cost = $_POST['total_cost'];
+				
 				$newId = $program->saveCropProfit("",$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
 				$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
 				$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
-				$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
+				$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_fruitprofit")
 			{
@@ -274,19 +282,19 @@ if (isset($_POST['save']))
 				$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
 				$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
 			}
-			elseif($_POST['tableName']=="tbl_costprofitanalysis")
-			{
-				$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
-				$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+			// elseif($_POST['tableName']=="tbl_costprofitanalysis")
+			// {
+			// 	$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
+			// 	$investment=$_POST['investment'];$remarks=$_POST['remarks'];
 				
-				$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
-				$production = $_POST['production'];
+			// 	$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+			// 	$production = $_POST['production'];
 				
-				$newId = $program->saveCostProfitAnalysis("",$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
-				$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
-				$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
-				$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
-			}
+			// 	$newId = $program->saveCostProfitAnalysis("",$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
+			// 	$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
+			// 	$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+			// 	$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
+			// }
 			
 			//$diary->saveImage($newId);
 			

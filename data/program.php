@@ -1638,10 +1638,10 @@ class Program
     }
     
     //for crop profit
-    function saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,$farmerName,$farmerAge,    
-    $farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,$cropSpecies,$cropAreaUnit,
-    $cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,$commodityUnit,$amount,$rate,$investment,
-    $remarks,$publish,$weight)
+    function saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
+            $farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
+            $cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+            $commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight)
     {
         global $conn;
         
@@ -1687,6 +1687,10 @@ class Program
         $constructionExpense = cleanQuery($constructionExpense);
         $collectorName = cleanQuery($collectorName);
         $collectorPost = cleanQuery($collectorPost);
+
+        $current_cost = cleanQuery($current_cost);
+        $economic_cost = cleanQuery($economic_cost);
+        $total_cost = cleanQuery($total_cost);
         
         $publish = cleanQuery($publish);
         $weight = cleanQuery($weight);
@@ -1724,6 +1728,9 @@ class Program
                         constructionExpense = '$constructionExpense',
                         collectorName = '$collectorName',
                         collectorPost = '$collectorPost',
+                        current_cost = '$current_cost',
+                        economic_cost = '$economic_cost',
+                        total_cost = '$total_cost',
                         publish = '$publish',
                         weight = '$weight'
                     WHERE
@@ -1762,6 +1769,9 @@ class Program
                         constructionExpense = '$constructionExpense',
                         collectorName = '$collectorName',
                         collectorPost = '$collectorPost',
+                        current_cost = '$current_cost',
+                        economic_cost = '$economic_cost',
+                        total_cost = '$total_cost',
                         publish = '$publish',
                         weight = '$weight',
                         onDate = NOW()";
