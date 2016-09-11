@@ -298,20 +298,28 @@
                 ?>
                 </select>
             </div>
-		</div>        
-    	<div class="inputleft inputright" style="margin-left:5%">
-        	<div>सिंचित</div>
+		</div>
+        <div class="inputleft" style="width:29%; margin-left:5%">
+            <div>सिंचित अवस्था</div>
             <div>
-            	<p><input type="text" name="cropIrrigatedArea" class="number" value="<?=$cropIrrigatedArea;?>" required /></p>
-          		<p class="error" id="cropIrrigatedArea"></p>
+                <select name="irrigationUnit" class="number" style="width:104px; height:20px;">
+                <?
+                $unit=$groups->getUnitByCategory("Land Type");
+                while($unitGet=$conn->fetchArray($unit))
+                {?>
+                    <option value="<?=$unitGet['id'];?>" <? if($unitGet['id']==$irrigationUnit){ echo 'selected="selected"';}?>>
+                        <?=$unitGet['name'];?>
+                    </option>  
+                <? }
+                ?>
+                </select>
             </div>
-      		<div style="clear:both"></div>
-       	</div>
+        </div>        
         <div class="inputleft inputright" style="margin-left:5%">
-        	<div>असिंचित</div>
+        	<div>क्षेत्रफल</div>
             <div>
-            	<input type="text" name="cropUnirrigatedArea" class="number" value="<?=$cropUnirrigatedArea;?>" required />
-           		<p class="error" id="cropUnirrigatedArea"></p>
+            	<input type="text" name="cropArea" class="number" value="<?=$cropArea;?>" required />
+           		<p class="error" id="cropArea"></p>
             </div>
             <div style="clear:both"></div>
       	</div>

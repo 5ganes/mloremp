@@ -1640,7 +1640,7 @@ class Program
     //for crop profit
     function saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
             $farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
-            $cropVarietyId,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+            $cropVarietyId,$cropAreaUnit,$irrigationUnit,$cropArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
             $commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight)
     {
         global $conn;
@@ -1675,14 +1675,13 @@ class Program
         $cropVarietyId = cleanQuery($cropVarietyId);
         
         $cropAreaUnit = cleanQuery($cropAreaUnit);
-        $cropIrrigatedArea = cleanQuery($cropIrrigatedArea);
-        $cropUnirrigatedArea = cleanQuery($cropUnirrigatedArea);
+        $irrigationUnit = cleanQuery($irrigationUnit);
         //converting area into hector
-        if($cropAreaUnit==KATHTHA){ $cropIrrigatedAreaHector=$cropIrrigatedArea/30;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/30; }
-        else if($cropAreaUnit==ROPANI){ $cropIrrigatedAreaHector=$cropIrrigatedArea/19.66;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/19.66; }
-        else if($cropAreaUnit==BIGHAA){ $cropIrrigatedAreaHector=$cropIrrigatedArea/1.48;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/1.48; }
-        else if($cropAreaUnit==BARGAMITAR){ $cropIrrigatedAreaHector=$cropIrrigatedArea/10000;$cropUnirrigatedAreaHector=$cropUnirrigatedArea/10000; }
-        else{ $cropIrrigatedAreaHector=$cropIrrigatedArea;$cropUnirrigatedAreaHector=$cropUnirrigatedArea; }
+        if($cropAreaUnit==KATHTHA){ $cropAreaHector=$cropArea/30; }
+        else if($cropAreaUnit==ROPANI){ $cropAreaHector=$cropArea/19.66; }
+        else if($cropAreaUnit==BIGHAA){ $cropAreaHector=$cropArea/1.48; }
+        else if($cropAreaUnit==BARGAMITAR){ $cropAreaHector=$cropArea/10000; }
+        else{ $cropAreaHector=$cropArea; }
         
         $constructionExpense = cleanQuery($constructionExpense);
         $collectorName = cleanQuery($collectorName);
@@ -1721,10 +1720,9 @@ class Program
                         cropId = '$cropId',
                         cropVarietyId = '$cropVarietyId',
                         cropAreaUnit = '$cropAreaUnit',
-                        cropIrrigatedArea = '$cropIrrigatedArea',
-                        cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',
-                        cropUnirrigatedArea = '$cropUnirrigatedArea',
-                        cropUnirrigatedAreaHector = '$cropUnirrigatedAreaHector',
+                        irrigationUnit = '$irrigationUnit',
+                        cropArea = '$cropArea',
+                        cropAreaHector = '$cropAreaHector',
                         constructionExpense = '$constructionExpense',
                         collectorName = '$collectorName',
                         collectorPost = '$collectorPost',
@@ -1762,10 +1760,9 @@ class Program
                         cropId = '$cropId',
                         cropVarietyId = '$cropVarietyId',
                         cropAreaUnit = '$cropAreaUnit',
-                        cropIrrigatedArea = '$cropIrrigatedArea',
-                        cropIrrigatedAreaHector = '$cropIrrigatedAreaHector',
-                        cropUnirrigatedArea = '$cropUnirrigatedArea',
-                        cropUnirrigatedAreaHector = '$cropUnirrigatedAreaHector',
+                        irrigationUnit = '$irrigationUnit',
+                        cropArea = '$cropArea',
+                        cropAreaHector = '$cropAreaHector',
                         constructionExpense = '$constructionExpense',
                         collectorName = '$collectorName',
                         collectorPost = '$collectorPost',

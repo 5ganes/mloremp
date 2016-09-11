@@ -121,7 +121,7 @@ if (isset($_POST['save']))
 			
 			$newId = $program->saveCropProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
 			$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
-			$cropVarietyId,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+			$cropVarietyId,$cropAreaUnit,$irrigationUnit,$cropArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
 			$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 		}
 		elseif($_POST['tableName']=="tbl_fruitprofit")
@@ -270,7 +270,7 @@ if (isset($_POST['save']))
 				
 				$newId = $program->saveCropProfit("",$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
 				$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
-				$cropVarietyId,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
+				$cropVarietyId,$cropAreaUnit,$irrigationUnit,$cropArea,$constructionExpense,$collectorName,$collectorPost,$commodity,
 				$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 			}
 			elseif($_POST['tableName']=="tbl_fruitprofit")
