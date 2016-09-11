@@ -1245,3 +1245,8 @@ function disableDistrict(id,district)
 		//$('#dist').removeAttr('disabled');
 	}
 }
+
+function changeVarietyCrop(box)
+{
+	location.href = "cropvariety.php?cropId=" + box.value;	
+}

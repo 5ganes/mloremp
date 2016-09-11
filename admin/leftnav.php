@@ -39,6 +39,7 @@
   		<p>Manage Crops</p>
         <ul>
             <li><a href="crop.php">Manage Crop List</a></li>
+            <li><a href="cropvariety.php">Manage Crop Variety</a></li>
             <li><a href="cropprice.php">Manage Crops for Price List</a></li>
         </ul>
   	</li>

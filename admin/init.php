@@ -28,6 +28,9 @@ $feedbacks			= new Feedbacks();
 require_once("../data/sewakendra.php");
 $sewakendra = new Sewakendra();
 
+require_once("../data/cropvariety.php");
+$cropvariety = new Cropvariety();
+
 define (ADMIN_GALLERY_LIMIT,20);
 
 
