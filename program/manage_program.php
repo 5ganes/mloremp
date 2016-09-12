@@ -128,10 +128,14 @@ if (isset($_POST['save']))
 		{
 			$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
 			$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+			
+			$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+			$total_cost = $_POST['total_cost'];
+			
 			$newId = $program->saveFruitProfit($id,$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
-			$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
-			$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
-			$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
+			$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
+			$cropVarietyId,$cropAreaUnit,$irrigationUnit,$cropArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
+			$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 		}
 		// elseif($_POST['tableName']=="tbl_costprofitanalysis")
 		// {
@@ -277,10 +281,14 @@ if (isset($_POST['save']))
 			{
 				$commodity=$_POST['commodity'];$commodityUnit=$_POST['commodityUnit'];$amount=$_POST['amount'];$rate=$_POST['rate'];
 				$investment=$_POST['investment'];$remarks=$_POST['remarks'];
+				
+				$current_cost = $_POST['current_cost']; $economic_cost = $_POST['economic_cost'];
+				$total_cost = $_POST['total_cost'];
+				
 				$newId = $program->saveFruitProfit("",$fiscalYear,$userId,$manualDate,$addressVdcMunicipality,$addressWardNumber,$pocketSector,$sewaKendra,
-				$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropName,
-				$cropSpecies,$cropAreaUnit,$cropIrrigatedArea,$cropUnirrigatedArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
-				$commodityUnit,$amount,$rate,$investment,$remarks,$publish,$weight);
+				$farmerName,$farmerAge,$farmerEducation,$otherOccupation,$groupName,$landAreaUnit,$totalArea,$agricultureArea,$familyNumber,$cropId,
+				$cropVarietyId,$cropAreaUnit,$irrigationUnit,$cropArea,$constructionExpense,$collectorName,$collectorPost,$fruitYear,$commodity,
+				$commodityUnit,$amount,$rate,$investment,$remarks,$current_cost,$economic_cost,$total_cost,$publish,$weight);
 			}
 			// elseif($_POST['tableName']=="tbl_costprofitanalysis")
 			// {
